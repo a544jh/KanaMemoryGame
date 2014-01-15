@@ -1,0 +1,27 @@
+Aihe: Japanin kielen tavumerkkien opetusohjelma
+
+Japanin kielessä käytetään kaksi tavumerkistöä, Hiragana ja Katakana. http://en.wikipedia.org/wiki/Kana Jokainen tavu voidaan siis esittää kolmessa eri muodossa; Hiraganana, Katakanana, ja latinalaisilla kirjaimilla (ns. Romaji).
+
+Toteutetaan ohjelma näiden tavumerkkien oppimiseen ja oppimisprosessin seuraamiseen.
+Käyttäjä luo ohjelmaan profiilin jossa oppimisen etenemisen tiedot säilytetään. Oppiminen tapahtuu erilaisilla peleillä tai aktiviteeteillä (tässä projektissa toteutetaan luultavasti vain yksi tai kaksi aktiviteettia, mutta ohjelma on helposti laajennettavissa). Aktiviteetti voi olla esimerkiksi hiirellä pelattava muistipeli, jossa paritellaan merkkien eri versioita tai peli, missä pitää valita oikea merkki satunnaisten joukosta. Jokaisen aktiviteetin voi konfiguroida mielekseen, esimerkiksi valita harjoiteltavat tavut ja niiden tyypit.
+
+Jokainen japanilainen merkki saa arvon (esim. -20 – 20), joka kertoo miten hyvin käyttäjä tunnistaa kyseisen merkin. Joka kerta kun käyttäjä antaa oikean vastauksen jossakin aktiviteetissä, nostetaan arvo yhdellä (tapauksissa jossa paritellaan sekä hiragana että katakana nostetaan molempien arvo). Jos annetaan väärä vastaus, arvo laskee yhdellä. Näillä tiedoilla voidaan tehdä visuaalinen taulukko, josta käyttäjä näkee etenemisensä. Merkit, jotka käyttäjä osaa paremmin näytetään vihreämmällä  sävyllä, päinvastoin huonommin muistuvat punaisella. Tätä tietoa voi myös käyttää apuna aktiviteeteissä käytettävien merkkien määrittämiseen. Voidaan myös laskea yhteispisteet ja näyttää oppimisen eteneminen palkin muodossa.
+
+
+Käyttäjä: Japanin tavumerkkejä opiskeleva
+
+Päätoiminnot:
+
+	* Käyttäjäprofiilien lisäys ja poisto (pelkkä nimi riittää)
+	* Päänäkymä josta valtiaan aktiviteetti ja nähdään oppimisen eteneminen
+	* Harjoiteltavien merkkien valitseminen
+	* Aktiviteettikohtainen konfigurointi
+
+
+Aktiviteetit (toteutusjärjestyksessä):
+
+	* Muistipeli: Perinteinen muistipeli, jossa käännetään kortteja. Pareina eri merkkityypit.
+	* Valitse vastaava merkki satunnaisten joukosta.
+	* Kuin edellinen, mutta syöte näppäimistöllä
+	* Merkkien raahaaminen oikealle kohdalle taulukossa
+	* Piirtäminen hiirellä
