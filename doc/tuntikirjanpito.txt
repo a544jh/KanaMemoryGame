@@ -1,3 +1,6 @@
 15.1.2014
-Github ja Netbeans säätö		2h
+Github ja Netbeans säätö	2h
 Aihemäärittelyn kirjoittaminen 	1h
+
+20.1.2014
+Ensimmäisten luokkien koodaaminen    1h

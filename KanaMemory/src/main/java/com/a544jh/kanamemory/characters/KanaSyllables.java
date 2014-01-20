@@ -13,6 +13,8 @@ public enum KanaSyllables {
 
     A("あ", "ア"),
     I("\u3044", "\u30a4");
+    //...U,E,O, KA,KI,KU,KE,KO...
+
 
     private final String hiragana, katakana;
 

@@ -18,5 +18,14 @@ public class App {
         System.out.println("あ");
         System.out.println(KanaSyllables.A.getRomaji());
         System.out.println(KanaSyllables.I.getKatakana());
+        System.out.println("---");
+        
+        KanaCharacter ah, ar;
+        ah = new KanaCharacter(KanaSyllables.A, CharacterType.HIRAGANA);
+        ar = new KanaCharacter(KanaSyllables.A, CharacterType.ROMAJI);
+        System.out.println("ah: " + ah.charcterString() + " " + ah);
+        System.out.println("ar: " +  ar.charcterString() + " " + ar);
+        System.out.println(ah.matchesWith(ar));
+        System.out.println(ah.matchesWith(new KanaCharacter(KanaSyllables.I, CharacterType.ROMAJI)));
     }
 }
