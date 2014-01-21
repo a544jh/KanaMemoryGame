@@ -9,7 +9,7 @@ package com.a544jh.kanamemory.characters;
  *
  * @author Axel
  */
-public enum KanaSyllables {
+public enum KanaSyllable {
 
     A("あ", "ア"),
     I("い", "イ"),
@@ -99,22 +99,25 @@ public enum KanaSyllables {
     PU("ぷ", "プ"),
     PE("ぺ", "ペ"),
     PO("ぽ", "ポ");
-    
 
     private final String hiragana, katakana;
 
-    private KanaSyllables(String hiragana, String katakana) {
+    private KanaSyllable(String hiragana, String katakana) {
         this.hiragana = hiragana;
         this.katakana = katakana;
     }
 
-    public String getHiragana() {
-        return hiragana;
+    public String getCharacterString(CharacterType cType) {
+        switch (cType) {
+            case HIRAGANA:
+                return hiragana;
+            case KATAKANA:
+                return katakana;
+            default:
+                return getRomaji();
+        }
     }
 
-    public String getKatakana() {
-        return katakana;
-    }
 
     public String getRomaji() {
         return this.toString().toLowerCase();

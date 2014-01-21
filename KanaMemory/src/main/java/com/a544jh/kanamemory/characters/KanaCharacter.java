@@ -11,26 +11,32 @@ package com.a544jh.kanamemory.characters;
  */
 public class KanaCharacter {
 
-    private final KanaSyllables syllable;
+    private final KanaSyllable syllable;
     private final CharacterType type;
 
-    public KanaCharacter(KanaSyllables syllable, CharacterType type) {
+    public KanaCharacter(KanaSyllable syllable, CharacterType type) {
         this.syllable = syllable;
         this.type = type;
     }
 
     public String charcterString() {
-        switch (type) {
-            case HIRAGANA:
-                return syllable.getHiragana();
-            case KATAKANA:
-                return syllable.getKatakana();
-            default:
-                return syllable.getRomaji();
-        }
+        return characterString(this.type);
+    }
+    
+    public String characterString(CharacterType cType){
+
+        return syllable.getCharacterString(cType);
     }
     
     public boolean matchesWith(KanaCharacter c){
         return this.syllable.equals(c.syllable);
+    }
+
+    public KanaSyllable getSyllable() {
+        return syllable;
+    }
+
+    public CharacterType getType() {
+        return type;
     }
 }
