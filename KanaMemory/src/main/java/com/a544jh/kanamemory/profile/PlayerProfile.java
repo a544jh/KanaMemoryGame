@@ -52,7 +52,7 @@ public class PlayerProfile {
         addScore(c.getSyllable(), c.getType(), score);
     }
 
-    private void addScore(KanaSyllable syllable, CharacterType type, int score) {
+    public void addScore(KanaSyllable syllable, CharacterType type, int score) {
         Map<KanaSyllable, Integer> scoreMap = kanaScores.get(type);
         
         int oldscore = getScore(syllable, type);

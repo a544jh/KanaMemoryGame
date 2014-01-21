@@ -4,3 +4,6 @@ Aihem‰‰rittelyn kirjoittaminen 	1h
 
 20.1.2014
 Ensimm‰isten luokkien koodaaminen    1h
+
+21.1.2014
+Lis‰‰ logiikkaa, tekstiversio, testit.	3h
