@@ -15,9 +15,8 @@ public class App {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
         TextGame testGame = new TextGame(new PlayerProfile("Test player"),
-                EnumSet.range(KanaSyllable.A, KanaSyllable.O));
+                EnumSet.range(KanaSyllable.A, KanaSyllable.MO));
         testGame.printStats();
-        testGame.play(CharacterType.HIRAGANA);
         testGame.play(CharacterType.HIRAGANA);
         testGame.printStats();
         testGame.play(CharacterType.KATAKANA);
