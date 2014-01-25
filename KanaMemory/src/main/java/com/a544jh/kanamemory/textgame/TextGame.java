@@ -33,11 +33,16 @@ public class TextGame {
         System.out.println("Name: " + profile.getName());
 
         for (CharacterType ct : EnumSet.of(CharacterType.HIRAGANA, CharacterType.KATAKANA)) {
-            
+            int i=0;
             for (KanaSyllable kanaSyllable : kanaSet) {
+                i++;
                 String kana = kanaSyllable.getCharacterString(ct);
                 int score = profile.getScore(kanaSyllable, ct);
                 System.out.print(kana + ":" + score + " ");
+                if (i%5==0){
+                    System.out.print("\n");
+                    i=0;
+                }
             }
             System.out.print("\n");
         }
