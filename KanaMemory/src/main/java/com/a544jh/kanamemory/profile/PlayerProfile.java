@@ -10,6 +10,7 @@ import com.a544jh.kanamemory.characters.CharacterType;
 import com.a544jh.kanamemory.characters.KanaCharacter;
 import com.a544jh.kanamemory.characters.KanaSyllable;
 import java.util.EnumMap;
+import java.util.EnumSet;
 import java.util.Map;
 
 /**
@@ -26,9 +27,13 @@ public class PlayerProfile {
         //hiraganaScores = new EnumMap<>(KanaSyllable.class);
         //katakanaScores = new EnumMap<>(KanaSyllable.class);
         kanaScores = new EnumMap<>(CharacterType.class);
-        for (CharacterType cType : CharacterType.values()){
+        for (CharacterType cType : EnumSet.of(CharacterType.HIRAGANA, CharacterType.KATAKANA)){
             kanaScores.put(cType, new EnumMap<KanaSyllable, Integer>(KanaSyllable.class));
         }
+    }
+
+    public Map<CharacterType, Map<KanaSyllable, Integer>> getScoresMap() {
+        return kanaScores;
     }
 
     public String getName() {

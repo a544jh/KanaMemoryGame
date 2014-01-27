@@ -1,9 +1,12 @@
 15.1.2014
-Github ja Netbeans s‰‰tˆ	2h
-Aihem‰‰rittelyn kirjoittaminen 	1h
+Github ja Netbeans s√§√§t√∂	2h
+Aihem√§√§rittelyn kirjoittaminen 	1h
 
 20.1.2014
-Ensimm‰isten luokkien koodaaminen    1h
+Ensimm√§isten luokkien koodaaminen    1h
 
 21.1.2014
-Lis‰‰ logiikkaa, tekstiversio, testit.	3h
+Lis√§√§ logiikkaa, tekstiversio, testit.	3h
+
+27.1.2014
+File i/o luokkia org.JSON:lla   3h
