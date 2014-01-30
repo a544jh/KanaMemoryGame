@@ -24,11 +24,19 @@ public class KanaCharacter {
         this.syllable = syllable;
         this.type = type;
     }
-
+    
+    /**
+     * 
+     * @return The String representation of the character.
+     */
     public String charcterString() {
         return characterString(this.type);
     }
-    
+    /**
+     * 
+     * @param cType The type of character to get the String representation as.
+     * @return The String representation of the character as the specified CharacterType.
+     */
     public String characterString(CharacterType cType){
 
         return syllable.getCharacterString(cType);

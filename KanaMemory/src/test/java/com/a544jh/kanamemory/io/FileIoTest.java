@@ -9,7 +9,9 @@ package com.a544jh.kanamemory.io;
 import com.a544jh.kanamemory.characters.CharacterType;
 import com.a544jh.kanamemory.characters.KanaSyllable;
 import com.a544jh.kanamemory.profile.PlayerProfile;
-import org.json.JSONWriter;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -22,6 +24,9 @@ import static org.junit.Assert.*;
  * @author axwikstr@cs
  */
 public class FileIoTest {
+    
+    private PlayerProfile testProfile1;
+    private PlayerProfile testProfile2;
     
     public FileIoTest() {
     }
@@ -36,8 +41,8 @@ public class FileIoTest {
     
     @Before
     public void setUp() {
-        PlayerProfile testProfile1 = new PlayerProfile("test1");
-        PlayerProfile testProfile2 = new PlayerProfile("test2");
+        testProfile1 = new PlayerProfile("test1");
+        testProfile2 = new PlayerProfile("test2");
         
         testProfile1.addScore(KanaSyllable.TE, CharacterType.HIRAGANA, 5);
         testProfile1.addScore(KanaSyllable.SU, CharacterType.KATAKANA, 7);
@@ -51,11 +56,31 @@ public class FileIoTest {
     
     @Test
     public void namesListTest(){
-        JSONWriter
+        JsonFileWriter.saveProfile(testProfile1, "profiles_test.tmp");
+        JsonFileWriter.saveProfile(testProfile2, "profiles_test.tmp");
+        
+        ArrayList<String> names = new ArrayList<>(Arrays.asList("test1","test2"));
+        assertEquals(names, JsonFileReader.readProfilesList("profiles_test.tmp"));
+    }
+    
+    @Test
+    public void profileSaveAndLoadTest() {
+        JsonFileWriter.saveProfile(testProfile1, "profiles_test.tmp");
+        JsonFileWriter.saveProfile(testProfile2, "profiles_test.tmp");
+        PlayerProfile loaded1 = JsonFileReader.loadProfile("test1", "profiles_test.tmp");
+        PlayerProfile loaded2 = JsonFileReader.loadProfile("test2", "profiles_test.tmp");
+        
+        assertEquals(testProfile1.getName(), loaded1.getName());
+        assertEquals(testProfile1.getScoresMap(), loaded1.getScoresMap());
+        
+        assertEquals(testProfile2.getName(), loaded2.getName());
+        assertEquals(testProfile2.getScoresMap(), loaded2.getScoresMap());
     }
     
     @After
     public void tearDown() {
+        File tmpfile = new File("profiles_test.tmp");
+        tmpfile.deleteOnExit();
     }
 
     // TODO add test methods here.

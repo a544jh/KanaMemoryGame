@@ -29,11 +29,11 @@ public class JsonFileWriter {
         if (!file.exists()) {
             try {
                 file.createNewFile();
-                //Create new empty JSONObject
-                jo = new JSONObject();
             } catch (IOException ex) {
                 Logger.getLogger(JsonFileWriter.class.getName()).log(Level.SEVERE, null, ex);
             }
+            //Create new empty JSONObject
+            jo = new JSONObject();
         } else {
             //If the file exists
             try {

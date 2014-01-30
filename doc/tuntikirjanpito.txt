@@ -13,3 +13,4 @@ File i/o luokkia org.JSON:lla   3h
 
 30.1.2014
 Korjauksia, dokumentointia...   1,5h
+I/O luokkien testejä    1,5h
