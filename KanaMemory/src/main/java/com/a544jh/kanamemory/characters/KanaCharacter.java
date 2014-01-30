@@ -6,14 +6,20 @@
 package com.a544jh.kanamemory.characters;
 
 /**
- *
- * @author Axel
+ * Represents one of the Japanese kana characters.
+ * The character can be represented in its hiragana or katakana form, 
+ * or as it would be written as in roman letters (romaji)
  */
 public class KanaCharacter {
 
     private final KanaSyllable syllable;
     private final CharacterType type;
 
+    /**
+     * 
+     * @param syllable  The syllable of the character.
+     * @param type How the character should be represented.
+     */
     public KanaCharacter(KanaSyllable syllable, CharacterType type) {
         this.syllable = syllable;
         this.type = type;
@@ -28,6 +34,11 @@ public class KanaCharacter {
         return syllable.getCharacterString(cType);
     }
     
+    /**
+     * Check if two characters represent the same syllable.
+     * @param c The character to be matched.
+     * @return <code>true</code> if the characters have the same KanaSyllable
+     */
     public boolean matchesWith(KanaCharacter c){
         return this.syllable.equals(c.syllable);
     }
