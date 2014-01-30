@@ -23,24 +23,26 @@ public class JsonFileWriter {
 
     public static void saveProfile(PlayerProfile profile, String filename) {
         File file = new File(filename);
-        JSONObject jo;
+        JSONObject jo = null;
 
         //Create a new file if it doesn't exist
         if (!file.exists()) {
             try {
                 file.createNewFile();
+                //Create new empty JSONObject
+                jo = new JSONObject();
             } catch (IOException ex) {
                 Logger.getLogger(JsonFileWriter.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } else {
+            //If the file exists
+            try {
+                //Read the JSONObject from the file
+                jo = JsonFileReader.readFileToJsonObject(file);
+            } catch (FileNotFoundException | JSONException ex) {
+                Logger.getLogger(JsonFileWriter.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-
-        try {
-            //Read the JSONObject from the file
-            jo = JsonFileReader.readFileToJsonObject(file);
-        } catch (JSONException |  FileNotFoundException ex)  {
-            //If the file can't be read, create a new empty JSONObject
-            jo = new JSONObject();
-        } 
 
         try {
             //Put the profile's scores to be saved in the JSONOBject with the name as key
@@ -52,6 +54,6 @@ public class JsonFileWriter {
             Logger.getLogger(JsonFileWriter.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        }
-
     }
+
+}

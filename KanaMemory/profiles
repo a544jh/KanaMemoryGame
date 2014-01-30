@@ -1,0 +1,17 @@
+{
+    "test1": {
+        "HIRAGANA": {
+            "A": 10,
+            "KA": 12,
+            "SA": 27
+        },
+        "KATAKANA": {"GO": 15}
+    },
+    "test2": {
+        "HIRAGANA": {"YU": 17},
+        "KATAKANA": {
+            "YA": 16,
+            "YO": 18
+        }
+    }
+}
