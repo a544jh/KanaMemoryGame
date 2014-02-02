@@ -46,6 +46,11 @@ public class PlayerProfile {
     }
 
     public int getScore(KanaSyllable syllable, CharacterType type) {
+        //Not keeping score of Romaji characters
+        if(type == CharacterType.ROMAJI){
+            return 0;
+        }
+        
         Map<KanaSyllable, Integer> scoreMap = kanaScores.get(type);
         
         if (scoreMap.containsKey(syllable)){
@@ -59,6 +64,11 @@ public class PlayerProfile {
     }
 
     public void addScore(KanaSyllable syllable, CharacterType type, int score) {
+        //Not keeping score of Romaji characters
+        if(type == CharacterType.ROMAJI){
+            return;
+        }
+        
         Map<KanaSyllable, Integer> scoreMap = kanaScores.get(type);
         
         int oldscore = getScore(syllable, type);
