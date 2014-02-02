@@ -36,6 +36,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("KanaMemory");
         setPreferredSize(new java.awt.Dimension(500, 600));
         setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -77,12 +78,15 @@ public class MainWindow extends javax.swing.JFrame {
         CardLayout cardLayout = (CardLayout) mainWindow.getContentPane().getLayout();
 //        mainWindow.getContentPane().add(new MainMenuPanel(), "MainMenu");
 //        cardLayout.show(mainWindow.getContentPane(), "MainMenu");
-        MatchingGame mGame = new MatchingGame(new PlayerProfile("test"), EnumSet.range(KanaSyllable.A, KanaSyllable.O), 
-                CharacterType.HIRAGANA, CharacterType.ROMAJI, 5);
-        MatchingGamePanel mgpanel = new MatchingGamePanel();
-        mgpanel.setGame(mGame);
-        mainWindow.getContentPane().add(mgpanel);
-        mgpanel.prepareRound();
+        
+//        MatchingGame mGame = new MatchingGame(new PlayerProfile("test"), EnumSet.range(KanaSyllable.A, KanaSyllable.O), 
+//                CharacterType.HIRAGANA, CharacterType.ROMAJI, 5);
+//        MatchingGamePanel mgpanel = new MatchingGamePanel();
+//        mgpanel.setGame(mGame);
+//        mainWindow.getContentPane().add(mgpanel);
+//        mgpanel.prepareRound();
+        
+        mainWindow.add(new ProfileChooserPanel());
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

@@ -3,8 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.a544jh.kanamemory.ui;
+
+import com.a544jh.kanamemory.characters.CharacterType;
+import com.a544jh.kanamemory.characters.KanaSyllable;
+import com.a544jh.kanamemory.gamelogic.MatchingGame;
+import com.a544jh.kanamemory.profile.PlayerProfile;
+import java.awt.CardLayout;
+import java.util.EnumSet;
 
 /**
  *
@@ -12,11 +18,24 @@ package com.a544jh.kanamemory.ui;
  */
 public class MainMenuPanel extends javax.swing.JPanel {
 
+    private PlayerProfile profile;
+
     /**
      * Creates new form MainMenuPanel
      */
     public MainMenuPanel() {
         initComponents();
+    }
+
+    public void setProfile(PlayerProfile profile) {
+        this.profile = profile;
+    }
+
+    public void refresh() {
+        currentProfileLabel.setText("Current profile: " + profile.getName());
+        jProgressBar1.setMaximum(profile.MAX_TOTAL_SCORE);
+        jProgressBar1.setValue(profile.getTotalScoreSum());
+        totalProgressLabel.setText(profile.getTotalScoreSum() + "/" + profile.MAX_TOTAL_SCORE);
     }
 
     /**
@@ -40,6 +59,8 @@ public class MainMenuPanel extends javax.swing.JPanel {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         kanaTablePanel1 = new com.a544jh.kanamemory.ui.KanaTablePanel();
         kanaTablePanel2 = new com.a544jh.kanamemory.ui.KanaTablePanel();
+        currentProfileLabel = new javax.swing.JLabel();
+        totalProgressLabel = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(500, 600));
 
@@ -59,6 +80,11 @@ public class MainMenuPanel extends javax.swing.JPanel {
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         jButton3.setText("Match");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Type");
 
@@ -71,7 +97,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(211, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton3, jButton4});
@@ -96,11 +122,11 @@ public class MainMenuPanel extends javax.swing.JPanel {
         kanaTablePanel1.setLayout(kanaTablePanel1Layout);
         kanaTablePanel1Layout.setHorizontalGroup(
             kanaTablePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 471, Short.MAX_VALUE)
+            .addGap(0, 504, Short.MAX_VALUE)
         );
         kanaTablePanel1Layout.setVerticalGroup(
             kanaTablePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 312, Short.MAX_VALUE)
+            .addGap(0, 297, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Hiragana", kanaTablePanel1);
@@ -109,34 +135,42 @@ public class MainMenuPanel extends javax.swing.JPanel {
         kanaTablePanel2.setLayout(kanaTablePanel2Layout);
         kanaTablePanel2Layout.setHorizontalGroup(
             kanaTablePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 471, Short.MAX_VALUE)
+            .addGap(0, 504, Short.MAX_VALUE)
         );
         kanaTablePanel2Layout.setVerticalGroup(
             kanaTablePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 312, Short.MAX_VALUE)
+            .addGap(0, 297, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Katakana", kanaTablePanel2);
+
+        currentProfileLabel.setText("Current profile: -----");
+
+        totalProgressLabel.setText("146/146");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTabbedPane1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(kanaMemoryLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(changeProfileButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(aboutButton))
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(currentProfileLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(totalProgressLabel)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -147,14 +181,18 @@ public class MainMenuPanel extends javax.swing.JPanel {
                     .addComponent(kanaMemoryLabel)
                     .addComponent(changeProfileButton)
                     .addComponent(aboutButton))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(currentProfileLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(totalProgressLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -163,10 +201,23 @@ public class MainMenuPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_changeProfileButtonActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        CardLayout cl = (CardLayout) getParent().getLayout();
+        MatchingGame mgame = new MatchingGame(profile, EnumSet.range(KanaSyllable.A, KanaSyllable.O),
+                CharacterType.HIRAGANA, CharacterType.ROMAJI, 5);
+        MatchingGamePanel mgpanel = new MatchingGamePanel();
+        mgpanel.setGame(mgame);
+        mgpanel.prepareRound();
+        getParent().add(mgpanel, "MatchingGame");
+        cl.show(getParent(), "MatchingGame");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutButton;
     private javax.swing.JButton changeProfileButton;
+    private javax.swing.JLabel currentProfileLabel;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -177,5 +228,6 @@ public class MainMenuPanel extends javax.swing.JPanel {
     private javax.swing.JLabel kanaMemoryLabel;
     private com.a544jh.kanamemory.ui.KanaTablePanel kanaTablePanel1;
     private com.a544jh.kanamemory.ui.KanaTablePanel kanaTablePanel2;
+    private javax.swing.JLabel totalProgressLabel;
     // End of variables declaration//GEN-END:variables
 }

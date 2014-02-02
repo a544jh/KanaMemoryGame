@@ -6,6 +6,12 @@
 
 package com.a544jh.kanamemory.ui;
 
+import com.a544jh.kanamemory.io.JsonFileReader;
+import com.a544jh.kanamemory.profile.PlayerProfile;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author axel
@@ -17,8 +23,16 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
      */
     public ProfileChooserPanel() {
         initComponents();
+        populateList();
     }
-
+    public void populateList(){
+        DefaultListModel<String> listmodel = new DefaultListModel<>();
+        ArrayList<String> names = JsonFileReader.readProfilesList("profiles");
+        for (String string : names) {
+            listmodel.addElement(string);
+        }
+        jList1.setModel(listmodel);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,11 +45,12 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
+        loadProfileButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(500, 600));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("Choose Profile");
 
         jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -44,6 +59,13 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
         });
         jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jList1);
+
+        loadProfileButton.setText("Load");
+        loadProfileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadProfileButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -55,7 +77,10 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 379, Short.MAX_VALUE)))
+                        .addGap(0, 283, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(loadProfileButton)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -65,14 +90,30 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(414, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(loadProfileButton)
+                .addContainerGap(383, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void loadProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadProfileButtonActionPerformed
+        // TODO add your handling code here:
+        PlayerProfile profile = JsonFileReader.loadProfile(
+                (String) jList1.getSelectedValue(), "profiles");
+        CardLayout cl = (CardLayout) getParent().getLayout();
+        MainMenuPanel mainmenu = new MainMenuPanel();
+        mainmenu.setProfile(profile);
+        mainmenu.refresh();
+        getParent().add(mainmenu, "MainMenu");
+        cl.show(getParent(), "MainMenu");
+        getParent().remove(this);
+    }//GEN-LAST:event_loadProfileButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton loadProfileButton;
     // End of variables declaration//GEN-END:variables
 }

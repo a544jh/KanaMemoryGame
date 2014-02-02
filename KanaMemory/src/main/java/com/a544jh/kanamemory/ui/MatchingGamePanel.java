@@ -7,6 +7,7 @@ package com.a544jh.kanamemory.ui;
 
 import com.a544jh.kanamemory.characters.KanaCharacter;
 import com.a544jh.kanamemory.gamelogic.MatchingGame;
+import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -123,6 +124,7 @@ public class MatchingGamePanel extends javax.swing.JPanel {
         kanaCharacterButton9 = new com.a544jh.kanamemory.ui.KanaCharacterButton();
         kanaCharacterButton10 = new com.a544jh.kanamemory.ui.KanaCharacterButton();
         kanaCharacterButton11 = new com.a544jh.kanamemory.ui.KanaCharacterButton();
+        backButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(500, 600));
 
@@ -175,6 +177,13 @@ public class MatchingGamePanel extends javax.swing.JPanel {
         kanaCharacterButton11.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         jPanel2.add(kanaCharacterButton11);
 
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -185,11 +194,17 @@ public class MatchingGamePanel extends javax.swing.JPanel {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(backButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
+                .addContainerGap()
+                .addComponent(backButton)
+                .addGap(92, 92, 92)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,8 +216,16 @@ public class MatchingGamePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_kanaCharacterButton7ActionPerformed
 
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+        CardLayout cl = (CardLayout) getParent().getLayout();
+        cl.previous(getParent());
+        getParent().remove(this);
+    }//GEN-LAST:event_backButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private com.a544jh.kanamemory.ui.KanaCharacterButton kanaCharacterButton10;
