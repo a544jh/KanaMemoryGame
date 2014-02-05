@@ -8,6 +8,7 @@ package com.a544jh.testui;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -34,6 +35,7 @@ public class MainWindowTestMockup extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jDialog1 = new javax.swing.JDialog();
         jLabel3 = new javax.swing.JLabel();
@@ -45,10 +47,83 @@ public class MainWindowTestMockup extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
+        kanaTablePanel = new javax.swing.JPanel();
         jToggleButton1 = new javax.swing.JToggleButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
+        jToggleButton3 = new javax.swing.JToggleButton();
+        jToggleButton4 = new javax.swing.JToggleButton();
+        jToggleButton5 = new javax.swing.JToggleButton();
+        jToggleButton6 = new javax.swing.JToggleButton();
+        jToggleButton7 = new javax.swing.JToggleButton();
+        jToggleButton8 = new javax.swing.JToggleButton();
+        jToggleButton9 = new javax.swing.JToggleButton();
+        jToggleButton10 = new javax.swing.JToggleButton();
+        jToggleButton11 = new javax.swing.JToggleButton();
+        jToggleButton12 = new javax.swing.JToggleButton();
+        jToggleButton13 = new javax.swing.JToggleButton();
+        jToggleButton14 = new javax.swing.JToggleButton();
+        jToggleButton15 = new javax.swing.JToggleButton();
+        jToggleButton16 = new javax.swing.JToggleButton();
+        jToggleButton17 = new javax.swing.JToggleButton();
+        jToggleButton18 = new javax.swing.JToggleButton();
+        jToggleButton19 = new javax.swing.JToggleButton();
+        jToggleButton20 = new javax.swing.JToggleButton();
+        jToggleButton21 = new javax.swing.JToggleButton();
+        jToggleButton22 = new javax.swing.JToggleButton();
+        jToggleButton23 = new javax.swing.JToggleButton();
+        jToggleButton24 = new javax.swing.JToggleButton();
+        jToggleButton25 = new javax.swing.JToggleButton();
+        jToggleButton26 = new javax.swing.JToggleButton();
+        jToggleButton27 = new javax.swing.JToggleButton();
+        jToggleButton28 = new javax.swing.JToggleButton();
+        jToggleButton29 = new javax.swing.JToggleButton();
+        jToggleButton30 = new javax.swing.JToggleButton();
+        jToggleButton31 = new javax.swing.JToggleButton();
+        jToggleButton32 = new javax.swing.JToggleButton();
+        jToggleButton33 = new javax.swing.JToggleButton();
+        jToggleButton34 = new javax.swing.JToggleButton();
+        jToggleButton35 = new javax.swing.JToggleButton();
+        jToggleButton36 = new javax.swing.JToggleButton();
+        jToggleButton37 = new javax.swing.JToggleButton();
+        jToggleButton38 = new javax.swing.JToggleButton();
+        jToggleButton39 = new javax.swing.JToggleButton();
+        jToggleButton40 = new javax.swing.JToggleButton();
+        jToggleButton41 = new javax.swing.JToggleButton();
+        jToggleButton42 = new javax.swing.JToggleButton();
+        jToggleButton43 = new javax.swing.JToggleButton();
+        jToggleButton44 = new javax.swing.JToggleButton();
+        jToggleButton45 = new javax.swing.JToggleButton();
+        jToggleButton46 = new javax.swing.JToggleButton();
+        jToggleButton47 = new javax.swing.JToggleButton();
+        jToggleButton48 = new javax.swing.JToggleButton();
+        jToggleButton49 = new javax.swing.JToggleButton();
+        jToggleButton50 = new javax.swing.JToggleButton();
+        jToggleButton51 = new javax.swing.JToggleButton();
+        jToggleButton52 = new javax.swing.JToggleButton();
+        jToggleButton53 = new javax.swing.JToggleButton();
+        jToggleButton54 = new javax.swing.JToggleButton();
+        jToggleButton55 = new javax.swing.JToggleButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         newJPanel1 = new com.a544jh.testui.CustomPanelTest();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jToggleButton56 = new javax.swing.JToggleButton();
+        jToggleButton57 = new javax.swing.JToggleButton();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
+        jToggleButton59 = new javax.swing.JToggleButton();
+        jToggleButton60 = new javax.swing.JToggleButton();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jToggleButton61 = new javax.swing.JToggleButton();
+        jToggleButton62 = new javax.swing.JToggleButton();
+        jToggleButton63 = new javax.swing.JToggleButton();
+        jToggleButton64 = new javax.swing.JToggleButton();
+        jToggleButton65 = new javax.swing.JToggleButton();
         jProgressBar1 = new javax.swing.JProgressBar();
         jLabel2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -118,43 +193,533 @@ public class MainWindowTestMockup extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jPanel1);
 
+        kanaTablePanel.setLayout(new java.awt.GridLayout(5, 0));
+
         jToggleButton1.setBackground(new java.awt.Color(255, 255, 255));
         jToggleButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jToggleButton1.setText("あ");
         jToggleButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jToggleButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton1);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 380, Short.MAX_VALUE)
-                .addComponent(jToggleButton1))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jToggleButton1)
-                .addGap(0, 148, Short.MAX_VALUE))
-        );
+        jToggleButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton2.setText("あ");
+        jToggleButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton2);
 
-        jTabbedPane1.addTab("Hiragana", jPanel2);
+        jToggleButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton3.setText("あ");
+        jToggleButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton3);
+
+        jToggleButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton4.setText("あ");
+        jToggleButton4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton4);
+
+        jToggleButton5.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton5.setText("あ");
+        jToggleButton5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton5);
+
+        jToggleButton6.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton6.setText("あ");
+        jToggleButton6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton6);
+
+        jToggleButton7.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton7.setText("あ");
+        jToggleButton7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton7);
+
+        jToggleButton8.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton8.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton8.setText("あ");
+        jToggleButton8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton8);
+
+        jToggleButton9.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton9.setText("あ");
+        jToggleButton9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton9);
+
+        jToggleButton10.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton10.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton10.setText("あ");
+        jToggleButton10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton10);
+
+        jToggleButton11.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton11.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton11.setText("あ");
+        jToggleButton11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton11);
+
+        jToggleButton12.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton12.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton12.setText("あ");
+        jToggleButton12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton12);
+
+        jToggleButton13.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton13.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton13.setText("あ");
+        jToggleButton13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton13.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton13);
+
+        jToggleButton14.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton14.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton14.setText("あ");
+        jToggleButton14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton14.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton14);
+
+        jToggleButton15.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton15.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton15.setText("あ");
+        jToggleButton15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton15.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton15);
+
+        jToggleButton16.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton16.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton16.setText("あ");
+        jToggleButton16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton16.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton16);
+
+        jToggleButton17.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton17.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton17.setText("あ");
+        jToggleButton17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton17.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton17);
+
+        jToggleButton18.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton18.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton18.setText("あ");
+        jToggleButton18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton18.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton18);
+
+        jToggleButton19.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton19.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton19.setText("あ");
+        jToggleButton19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton19.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton19);
+
+        jToggleButton20.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton20.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton20.setText("あ");
+        jToggleButton20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton20.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton20);
+
+        jToggleButton21.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton21.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton21.setText("あ");
+        jToggleButton21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton21.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton21);
+
+        jToggleButton22.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton22.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton22.setText("あ");
+        jToggleButton22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton22.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton22);
+
+        jToggleButton23.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton23.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton23.setText("あ");
+        jToggleButton23.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton23.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton23);
+
+        jToggleButton24.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton24.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton24.setText("あ");
+        jToggleButton24.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton24.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton24);
+
+        jToggleButton25.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton25.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton25.setText("あ");
+        jToggleButton25.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton25.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton25);
+
+        jToggleButton26.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton26.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton26.setText("あ");
+        jToggleButton26.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton26.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton26);
+
+        jToggleButton27.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton27.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton27.setText("あ");
+        jToggleButton27.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton27.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton27);
+
+        jToggleButton28.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton28.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton28.setText("あ");
+        jToggleButton28.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton28.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton28);
+
+        jToggleButton29.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton29.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton29.setText("あ");
+        jToggleButton29.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton29.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton29);
+
+        jToggleButton30.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton30.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton30.setText("あ");
+        jToggleButton30.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton30.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton30);
+
+        jToggleButton31.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton31.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton31.setText("あ");
+        jToggleButton31.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton31.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton31);
+
+        jToggleButton32.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton32.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton32.setText("あ");
+        jToggleButton32.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton32.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton32);
+
+        jToggleButton33.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton33.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton33.setText("あ");
+        jToggleButton33.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton33.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton33);
+
+        jToggleButton34.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton34.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton34.setText("あ");
+        jToggleButton34.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton34.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton34);
+
+        jToggleButton35.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton35.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton35.setText("あ");
+        jToggleButton35.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton35.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton35);
+
+        jToggleButton36.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton36.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton36.setText("あ");
+        jToggleButton36.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton36.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton36);
+
+        jToggleButton37.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton37.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton37.setText("あ");
+        jToggleButton37.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton37.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton37);
+
+        jToggleButton38.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton38.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton38.setText("あ");
+        jToggleButton38.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton38.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton38);
+
+        jToggleButton39.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton39.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton39.setText("あ");
+        jToggleButton39.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton39.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton39);
+
+        jToggleButton40.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton40.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton40.setText("あ");
+        jToggleButton40.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton40.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton40);
+
+        jToggleButton41.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton41.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton41.setText("あ");
+        jToggleButton41.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton41.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton41);
+
+        jToggleButton42.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton42.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton42.setText("あ");
+        jToggleButton42.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton42.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton42);
+
+        jToggleButton43.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton43.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton43.setText("あ");
+        jToggleButton43.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton43.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton43);
+
+        jToggleButton44.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton44.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton44.setText("あ");
+        jToggleButton44.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton44.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton44);
+
+        jToggleButton45.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton45.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton45.setText("あ");
+        jToggleButton45.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton45.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton45);
+
+        jToggleButton46.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton46.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton46.setText("あ");
+        jToggleButton46.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton46.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton46);
+
+        jToggleButton47.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton47.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton47.setText("あ");
+        jToggleButton47.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton47.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton47);
+
+        jToggleButton48.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton48.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton48.setText("あ");
+        jToggleButton48.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton48.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton48);
+
+        jToggleButton49.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton49.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton49.setText("あ");
+        jToggleButton49.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton49.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton49);
+
+        jToggleButton50.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton50.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton50.setText("あ");
+        jToggleButton50.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton50.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton50);
+
+        jToggleButton51.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton51.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton51.setText("あ");
+        jToggleButton51.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton51.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton51);
+
+        jToggleButton52.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton52.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton52.setText("あ");
+        jToggleButton52.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton52.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton52);
+
+        jToggleButton53.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton53.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton53.setText("あ");
+        jToggleButton53.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton53.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton53);
+
+        jToggleButton54.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton54.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton54.setText("あ");
+        jToggleButton54.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton54.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton54);
+
+        jToggleButton55.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton55.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton55.setText("あ");
+        jToggleButton55.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton55.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        kanaTablePanel.add(jToggleButton55);
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel5.setForeground(javax.swing.UIManager.getDefaults().getColor("textInactiveText"));
+        jLabel5.setText("a");
+        kanaTablePanel.add(jLabel5);
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel6.setForeground(javax.swing.UIManager.getDefaults().getColor("textInactiveText"));
+        jLabel6.setText("i");
+        kanaTablePanel.add(jLabel6);
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel7.setForeground(javax.swing.UIManager.getDefaults().getColor("textInactiveText"));
+        jLabel7.setText("u");
+        kanaTablePanel.add(jLabel7);
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel8.setForeground(javax.swing.UIManager.getDefaults().getColor("textInactiveText"));
+        jLabel8.setText("e");
+        kanaTablePanel.add(jLabel8);
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel9.setForeground(javax.swing.UIManager.getDefaults().getColor("textInactiveText"));
+        jLabel9.setText("o");
+        kanaTablePanel.add(jLabel9);
+
+        jTabbedPane1.addTab("Hiragana", kanaTablePanel);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGap(0, 457, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 181, Short.MAX_VALUE)
+            .addGap(0, 409, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Katakana", jPanel3);
         jTabbedPane1.addTab("tab3", newJPanel1);
         newJPanel1.setBgColor(Color.RED);
+
+        jPanel5.setLayout(new java.awt.GridLayout(5, 0));
+
+        jToggleButton56.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton56.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton56.setText("あ");
+        jToggleButton56.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton56.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel5.add(jToggleButton56);
+
+        jToggleButton57.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton57.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton57.setText("あ");
+        jToggleButton57.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton57.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel5.add(jToggleButton57);
+        jPanel5.add(filler1);
+
+        jToggleButton59.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton59.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton59.setText("あ");
+        jToggleButton59.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton59.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel5.add(jToggleButton59);
+
+        jToggleButton60.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton60.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton60.setText("あ");
+        jToggleButton60.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton60.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel5.add(jToggleButton60);
+
+        jPanel6.setLayout(new java.awt.GridLayout());
+
+        jPanel7.setLayout(new java.awt.GridLayout(5, 0));
+
+        jToggleButton61.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton61.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton61.setText("あ");
+        jToggleButton61.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton61.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel7.add(jToggleButton61);
+
+        jToggleButton62.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton62.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton62.setText("あ");
+        jToggleButton62.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton62.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel7.add(jToggleButton62);
+
+        jToggleButton63.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton63.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton63.setText("あ");
+        jToggleButton63.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton63.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel7.add(jToggleButton63);
+
+        jToggleButton64.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton64.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton64.setText("あ");
+        jToggleButton64.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton64.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel7.add(jToggleButton64);
+
+        jToggleButton65.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton65.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jToggleButton65.setText("あ");
+        jToggleButton65.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToggleButton65.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel7.add(jToggleButton65);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(161, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(41, 41, 41)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(191, 191, 191))
+        );
+
+        jTabbedPane1.addTab("tab4", jPanel2);
 
         jProgressBar1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -184,18 +749,19 @@ public class MainWindowTestMockup extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4))
-                    .addComponent(jLabel2)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTabbedPane1))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButton3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton4))
+                        .addComponent(jLabel2)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+                        .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,8 +779,8 @@ public class MainWindowTestMockup extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel4, "card9");
@@ -294,6 +860,7 @@ public class MainWindowTestMockup extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -304,14 +871,86 @@ public class MainWindowTestMockup extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton10;
+    private javax.swing.JToggleButton jToggleButton11;
+    private javax.swing.JToggleButton jToggleButton12;
+    private javax.swing.JToggleButton jToggleButton13;
+    private javax.swing.JToggleButton jToggleButton14;
+    private javax.swing.JToggleButton jToggleButton15;
+    private javax.swing.JToggleButton jToggleButton16;
+    private javax.swing.JToggleButton jToggleButton17;
+    private javax.swing.JToggleButton jToggleButton18;
+    private javax.swing.JToggleButton jToggleButton19;
+    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton jToggleButton20;
+    private javax.swing.JToggleButton jToggleButton21;
+    private javax.swing.JToggleButton jToggleButton22;
+    private javax.swing.JToggleButton jToggleButton23;
+    private javax.swing.JToggleButton jToggleButton24;
+    private javax.swing.JToggleButton jToggleButton25;
+    private javax.swing.JToggleButton jToggleButton26;
+    private javax.swing.JToggleButton jToggleButton27;
+    private javax.swing.JToggleButton jToggleButton28;
+    private javax.swing.JToggleButton jToggleButton29;
+    private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JToggleButton jToggleButton30;
+    private javax.swing.JToggleButton jToggleButton31;
+    private javax.swing.JToggleButton jToggleButton32;
+    private javax.swing.JToggleButton jToggleButton33;
+    private javax.swing.JToggleButton jToggleButton34;
+    private javax.swing.JToggleButton jToggleButton35;
+    private javax.swing.JToggleButton jToggleButton36;
+    private javax.swing.JToggleButton jToggleButton37;
+    private javax.swing.JToggleButton jToggleButton38;
+    private javax.swing.JToggleButton jToggleButton39;
+    private javax.swing.JToggleButton jToggleButton4;
+    private javax.swing.JToggleButton jToggleButton40;
+    private javax.swing.JToggleButton jToggleButton41;
+    private javax.swing.JToggleButton jToggleButton42;
+    private javax.swing.JToggleButton jToggleButton43;
+    private javax.swing.JToggleButton jToggleButton44;
+    private javax.swing.JToggleButton jToggleButton45;
+    private javax.swing.JToggleButton jToggleButton46;
+    private javax.swing.JToggleButton jToggleButton47;
+    private javax.swing.JToggleButton jToggleButton48;
+    private javax.swing.JToggleButton jToggleButton49;
+    private javax.swing.JToggleButton jToggleButton5;
+    private javax.swing.JToggleButton jToggleButton50;
+    private javax.swing.JToggleButton jToggleButton51;
+    private javax.swing.JToggleButton jToggleButton52;
+    private javax.swing.JToggleButton jToggleButton53;
+    private javax.swing.JToggleButton jToggleButton54;
+    private javax.swing.JToggleButton jToggleButton55;
+    private javax.swing.JToggleButton jToggleButton56;
+    private javax.swing.JToggleButton jToggleButton57;
+    private javax.swing.JToggleButton jToggleButton59;
+    private javax.swing.JToggleButton jToggleButton6;
+    private javax.swing.JToggleButton jToggleButton60;
+    private javax.swing.JToggleButton jToggleButton61;
+    private javax.swing.JToggleButton jToggleButton62;
+    private javax.swing.JToggleButton jToggleButton63;
+    private javax.swing.JToggleButton jToggleButton64;
+    private javax.swing.JToggleButton jToggleButton65;
+    private javax.swing.JToggleButton jToggleButton7;
+    private javax.swing.JToggleButton jToggleButton8;
+    private javax.swing.JToggleButton jToggleButton9;
+    private javax.swing.JPanel kanaTablePanel;
     private com.a544jh.testui.CustomPanelTest newJPanel1;
     // End of variables declaration//GEN-END:variables
 }

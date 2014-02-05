@@ -86,7 +86,7 @@ public class MainWindow extends javax.swing.JFrame {
 //        mainWindow.getContentPane().add(mgpanel);
 //        mgpanel.prepareRound();
         
-        mainWindow.add(new ProfileChooserPanel());
+        mainWindow.add(new ProfileChooserPanel(),"ProfileChooser");
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

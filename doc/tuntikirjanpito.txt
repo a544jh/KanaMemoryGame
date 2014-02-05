@@ -15,3 +15,9 @@ File i/o luokkia org.JSON:lla   3h
 Korjauksia, dokumentointia...   1,5h
 I/O luokkien testejä    1,5h
 UI Builderin kanssa leikkiminen 2h
+
+2.2.2014
+Pelilogiikkaa, käyttöliittymää 3,5h
+
+5.2.2014
+Hiomista, testejä...    2h

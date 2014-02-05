@@ -19,13 +19,13 @@ import javax.swing.JPanel;
  *
  * @author axel
  */
-public class MatchingGamePanel extends javax.swing.JPanel {
+public class MatchingGamePanel extends javax.swing.JPanel implements GamePanel{
 
     private MatchingGame game;
     ArrayList<KanaCharacterButton> kcbuttons1, kcbuttons2;
 
     /**
-     * Creates new form MainMenuPanel
+     * Creates new form MatchingGamePanel
      */
     public MatchingGamePanel() {
         initComponents();
@@ -56,7 +56,7 @@ public class MatchingGamePanel extends javax.swing.JPanel {
         this.game = game;
     }
 
-    public void prepareRound() {
+    public void startRound() {
         ArrayList[] charLists = game.getCharacters();
         
         ArrayList<KanaCharacter> chars1 = (ArrayList<KanaCharacter>) charLists[0];
@@ -77,27 +77,32 @@ public class MatchingGamePanel extends javax.swing.JPanel {
     
     class KanaButtonListener implements ActionListener{
         KanaCharacterButton kcb1=null, kcb2=null;
-        int matchCount = 0;
+        int matchedCount = 0;
         @Override
         public void actionPerformed(ActionEvent ae) {
             if(kcb1==null){
+                //First button gets selected
                 kcb1 = (KanaCharacterButton)ae.getSource();
                 kcb1.setEnabled(false);
             } else if (kcb2==null) {
+                //Second button gets selected
                 kcb2 = (KanaCharacterButton)ae.getSource();;
                 if(game.matchCharacters(kcb1.getCharacter(), kcb2.getCharacter())){
+                    //Match, hide both buttons
                     kcb1.setVisible(false);
                     kcb2.setVisible(false);
-                    matchCount++;
+                    matchedCount++;
                 } else {
+                    //Mismatch, enable the first button again
                     kcb1.setEnabled(true);
                 }
+                //Reset the button pointers
                 kcb1 = null;
                 kcb2 = null;
                 
-                if (matchCount == game.getCharsPerRound()){
-                    matchCount = 0;
-                    prepareRound();
+                if (matchedCount == game.getCharsPerRound()){
+                    matchedCount = 0;
+                    startRound();
                 }
             }
         }

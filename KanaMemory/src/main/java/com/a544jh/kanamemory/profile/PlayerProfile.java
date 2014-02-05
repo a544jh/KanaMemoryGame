@@ -33,7 +33,7 @@ public class PlayerProfile {
         for (CharacterType cType : EnumSet.of(CharacterType.HIRAGANA, CharacterType.KATAKANA)) {
             kanaScores.put(cType, new EnumMap<KanaSyllable, Integer>(KanaSyllable.class));
         }
-        MAX_TOTAL_SCORE = 2 * KanaSyllable.values().length;
+        MAX_TOTAL_SCORE = 2 * KanaSyllable.values().length * MAX_CHARACTER_SCORE;
     }
 
     public Map<CharacterType, Map<KanaSyllable, Integer>> getScoresMap() {
@@ -92,8 +92,8 @@ public class PlayerProfile {
         return sum;
     }
 
-    public int getCompletionPrecentage() {
-        return (getTotalScoreSum() /  MAX_TOTAL_SCORE) * 100;
+    public double getCompletionPrecentage() {
+        return ((double)getTotalScoreSum() /  MAX_TOTAL_SCORE) * 100;
     }
 
 }

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.a544jh.kanamemory.ui;
 
 import com.a544jh.kanamemory.io.JsonFileReader;
@@ -19,13 +18,14 @@ import javax.swing.DefaultListModel;
 public class ProfileChooserPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form MainMenuPanel
+     * Creates new form ProfileChooserPanel
      */
     public ProfileChooserPanel() {
         initComponents();
         populateList();
     }
-    public void populateList(){
+
+    public void populateList() {
         DefaultListModel<String> listmodel = new DefaultListModel<>();
         ArrayList<String> names = JsonFileReader.readProfilesList("profiles");
         for (String string : names) {
@@ -33,6 +33,19 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
         }
         jList1.setModel(listmodel);
     }
+
+    private void loadSelectedProfile() {
+        // TODO add your handling code here:
+        PlayerProfile profile = JsonFileReader.loadProfile(
+                (String) jList1.getSelectedValue(), "profiles");
+        CardLayout cl = (CardLayout) getParent().getLayout();
+        MainMenuPanel mainmenu = new MainMenuPanel();
+        mainmenu.setProfile(profile);
+        getParent().add(mainmenu, "MainMenu");
+        cl.show(getParent(), "MainMenu");
+        getParent().remove(this);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,6 +71,11 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
             public Object getElementAt(int i) { return strings[i]; }
         });
         jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jList1);
 
         loadProfileButton.setText("Load");
@@ -97,17 +115,15 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loadProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadProfileButtonActionPerformed
-        // TODO add your handling code here:
-        PlayerProfile profile = JsonFileReader.loadProfile(
-                (String) jList1.getSelectedValue(), "profiles");
-        CardLayout cl = (CardLayout) getParent().getLayout();
-        MainMenuPanel mainmenu = new MainMenuPanel();
-        mainmenu.setProfile(profile);
-        mainmenu.refresh();
-        getParent().add(mainmenu, "MainMenu");
-        cl.show(getParent(), "MainMenu");
-        getParent().remove(this);
+        loadSelectedProfile();
     }//GEN-LAST:event_loadProfileButtonActionPerformed
+
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+        // Also respond to double click
+        if (evt.getClickCount() == 2) {
+            loadSelectedProfile();
+        }
+    }//GEN-LAST:event_jList1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
