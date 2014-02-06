@@ -81,6 +81,14 @@ public class PlayerProfileTest {
         assertTrue(p.getScore(h) != p.getScore(KanaSyllable.HA, CharacterType.KATAKANA));
     }
 
+    
+    @Test
+    public void addScoreRomajiTest(){
+        p.addScore(KanaSyllable.A, CharacterType.ROMAJI, 10);
+        
+        assertEquals(0, p.getScore(KanaSyllable.A, CharacterType.ROMAJI));
+    }
+    
     @Test
     public void scoreDoesNotExceedMaxTest() {
         KanaCharacter c = new KanaCharacter(KanaSyllable.A, CharacterType.HIRAGANA);

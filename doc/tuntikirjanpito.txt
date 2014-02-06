@@ -21,3 +21,6 @@ Pelilogiikkaa, käyttöliittymää 3,5h
 
 5.2.2014
 Hiomista, testejä...    2h
+
+6.2.2014
+Sekvenssikaavio 1h
