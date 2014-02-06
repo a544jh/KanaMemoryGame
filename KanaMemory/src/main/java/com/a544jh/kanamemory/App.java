@@ -25,7 +25,7 @@ public class App {
 //        testGame.play(CharacterType.KATAKANA);
 //        testGame.printStats();
 
-        ArrayList<String> names = JsonFileReader.readProfilesList("profiles");
+        ArrayList<String> names = JsonFileReader.ProfilesList("profiles");
         for (String string : names) {
             System.out.println(string);
         }

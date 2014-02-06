@@ -60,7 +60,7 @@ public class FileIoTest {
         JsonFileWriter.saveProfile(testProfile2, "profiles_test.tmp");
         
         ArrayList<String> names = new ArrayList<>(Arrays.asList("test1","test2"));
-        assertEquals(names, JsonFileReader.readProfilesList("profiles_test.tmp"));
+        assertEquals(names, JsonFileReader.ProfilesList("profiles_test.tmp"));
     }
     
     @Test

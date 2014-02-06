@@ -19,11 +19,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
+ * Methods for parsing JSON-formatted files to construct a {@link PlayerProfile}
+ * object.
  *
  * @author axel
  */
 public class JsonFileReader {
 
+    /**
+     * Creates a new PlayerProfile object from a JSON file
+     *
+     * @param profileName The name field of the profile to be loaded, used as
+     * the key in the JSON mapping.
+     * @param filename Name of the JSON-formatted file to read the data from.
+     * @return A new PlayerProfile with the character scores loaded from the
+     * file.
+     */
     public static PlayerProfile loadProfile(String profileName, String filename) {
         PlayerProfile profile = new PlayerProfile(profileName);
         File file = new File(filename);
@@ -54,7 +65,14 @@ public class JsonFileReader {
         }
     }
 
-    public static ArrayList<String> readProfilesList(String filename) {
+    /**
+     * Returns a list of profile names in a JSON file. (The keys in the JSON
+     * mapping)
+     *
+     * @param filename JSON file to be parsed.
+     * @return
+     */
+    public static ArrayList<String> ProfilesList(String filename) {
         ArrayList<String> names = new ArrayList<>();
         try {
             JSONObject jo = readFileToJsonObject(new File(filename));

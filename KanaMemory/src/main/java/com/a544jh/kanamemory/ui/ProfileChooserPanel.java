@@ -27,7 +27,7 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
 
     public void populateList() {
         DefaultListModel<String> listmodel = new DefaultListModel<>();
-        ArrayList<String> names = JsonFileReader.readProfilesList("profiles");
+        ArrayList<String> names = JsonFileReader.ProfilesList("profiles");
         for (String string : names) {
             listmodel.addElement(string);
         }

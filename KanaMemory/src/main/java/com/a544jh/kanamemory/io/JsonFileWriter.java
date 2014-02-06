@@ -16,11 +16,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
+ * Methods for writing the data of {@link PlayerProfile} objects to a
+ * JSON-formatted file.
  *
  * @author axel
  */
 public class JsonFileWriter {
 
+    /**
+     * Saves the PlayerProfile to a JSON-formatted file. If the file exists, the
+     * profile is added to the existing JSON-mapping, if a profile with the same
+     * name already exists in th file, it will be overwritten. If the files does
+     * not exist, a new JSON-formatted file will be created.
+     *
+     * @param profile The PlayerProfile to be saved.
+     * @param filename The file to save the data to. Can be a JSON-formatted
+     * file created by this method, or an nonexistent file.
+     */
     public static void saveProfile(PlayerProfile profile, String filename) {
         File file = new File(filename);
         JSONObject jo = null;

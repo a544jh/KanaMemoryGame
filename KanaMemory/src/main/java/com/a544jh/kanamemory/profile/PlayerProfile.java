@@ -14,21 +14,19 @@ import java.util.Map;
 
 /**
  * The representation of a player's profile, containing its name and a score for
- * each possible KanaCharacter.
- *
+ * each Japanese kana character.
+ * The profile has a mapping of each possible KanaCharacter, excluding the romaji
+ * forms.
  */
 public class PlayerProfile {
 
     private String name;
     public final int MAX_CHARACTER_SCORE = 20;
     public final int MAX_TOTAL_SCORE;
-    //private Map<KanaSyllable,Integer> hiraganaScores, katakanaScores;
     private Map<CharacterType, Map<KanaSyllable, Integer>> kanaScores;
 
     public PlayerProfile(String name) {
         this.name = name;
-        //hiraganaScores = new EnumMap<>(KanaSyllable.class);
-        //katakanaScores = new EnumMap<>(KanaSyllable.class);
         kanaScores = new EnumMap<>(CharacterType.class);
         for (CharacterType cType : EnumSet.of(CharacterType.HIRAGANA, CharacterType.KATAKANA)) {
             kanaScores.put(cType, new EnumMap<KanaSyllable, Integer>(KanaSyllable.class));
