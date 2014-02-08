@@ -6,6 +6,7 @@
 
 package com.a544jh.testui;
 
+import java.awt.Color;
 import javax.swing.JButton;
 
 /**
@@ -15,6 +16,7 @@ import javax.swing.JButton;
 public class Backbuttontest extends JButton{
 
     public Backbuttontest() {
+        this.setBackground(Color.yellow);
     }
 
     

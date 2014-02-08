@@ -12,6 +12,7 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -22,7 +23,7 @@ import javax.swing.JPanel;
 public class MatchingGamePanel extends javax.swing.JPanel implements GamePanel{
 
     private MatchingGame game;
-    ArrayList<KanaCharacterButton> kcbuttons1, kcbuttons2;
+    List<KanaCharacterButton> kcbuttons1, kcbuttons2;
 
     /**
      * Creates new form MatchingGamePanel

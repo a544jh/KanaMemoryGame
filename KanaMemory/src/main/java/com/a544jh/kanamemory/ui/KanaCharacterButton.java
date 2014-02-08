@@ -19,7 +19,7 @@ public class KanaCharacterButton extends JButton{
     
     public KanaCharacterButton(){
     }
-
+    
     public KanaCharacter getCharacter() {
         return character;
     }

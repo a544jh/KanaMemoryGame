@@ -58,8 +58,8 @@ public class MainMenuPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        kanaTablePanel1 = new com.a544jh.kanamemory.ui.KanaTablePanel();
-        kanaTablePanel2 = new com.a544jh.kanamemory.ui.KanaTablePanel();
+        hiraganaPanel = new com.a544jh.kanamemory.ui.KanaTablePanel();
+        katakanaPanel = new com.a544jh.kanamemory.ui.KanaTablePanel();
         currentProfileLabel = new javax.swing.JLabel();
         totalProgressLabel = new javax.swing.JLabel();
 
@@ -124,31 +124,11 @@ public class MainMenuPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Total progress:");
 
-        javax.swing.GroupLayout kanaTablePanel1Layout = new javax.swing.GroupLayout(kanaTablePanel1);
-        kanaTablePanel1.setLayout(kanaTablePanel1Layout);
-        kanaTablePanel1Layout.setHorizontalGroup(
-            kanaTablePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 504, Short.MAX_VALUE)
-        );
-        kanaTablePanel1Layout.setVerticalGroup(
-            kanaTablePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 297, Short.MAX_VALUE)
-        );
+        hiraganaPanel.setCtype(CharacterType.HIRAGANA);
+        jTabbedPane1.addTab("Hiragana", hiraganaPanel);
 
-        jTabbedPane1.addTab("Hiragana", kanaTablePanel1);
-
-        javax.swing.GroupLayout kanaTablePanel2Layout = new javax.swing.GroupLayout(kanaTablePanel2);
-        kanaTablePanel2.setLayout(kanaTablePanel2Layout);
-        kanaTablePanel2Layout.setHorizontalGroup(
-            kanaTablePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 504, Short.MAX_VALUE)
-        );
-        kanaTablePanel2Layout.setVerticalGroup(
-            kanaTablePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 297, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Katakana", kanaTablePanel2);
+        katakanaPanel.setCtype(CharacterType.KATAKANA);
+        jTabbedPane1.addTab("Katakana", katakanaPanel);
 
         currentProfileLabel.setText("Current profile: -----");
 
@@ -233,6 +213,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
     private javax.swing.JButton aboutButton;
     private javax.swing.JButton changeProfileButton;
     private javax.swing.JLabel currentProfileLabel;
+    private com.a544jh.kanamemory.ui.KanaTablePanel hiraganaPanel;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -240,8 +221,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel kanaMemoryLabel;
-    private com.a544jh.kanamemory.ui.KanaTablePanel kanaTablePanel1;
-    private com.a544jh.kanamemory.ui.KanaTablePanel kanaTablePanel2;
+    private com.a544jh.kanamemory.ui.KanaTablePanel katakanaPanel;
     private javax.swing.JButton matchingGameButton;
     private javax.swing.JLabel totalProgressLabel;
     // End of variables declaration//GEN-END:variables
