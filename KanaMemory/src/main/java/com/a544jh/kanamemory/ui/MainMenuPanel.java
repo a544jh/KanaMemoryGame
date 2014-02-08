@@ -5,9 +5,11 @@
  */
 package com.a544jh.kanamemory.ui;
 
+import com.a544jh.kanamemory.ui.matchinggame.MatchingGamePanel;
 import com.a544jh.kanamemory.characters.CharacterType;
 import com.a544jh.kanamemory.characters.KanaSyllable;
 import com.a544jh.kanamemory.gamelogic.MatchingGame;
+import com.a544jh.kanamemory.io.JsonFileWriter;
 import com.a544jh.kanamemory.profile.PlayerProfile;
 import java.awt.CardLayout;
 import java.util.EnumSet;
@@ -37,6 +39,8 @@ public class MainMenuPanel extends javax.swing.JPanel {
         jProgressBar1.setValue(profile.getTotalScoreSum());
         totalProgressLabel.setText(String.format("%.2f",profile.getCompletionPrecentage()) + "% "
                 + profile.getTotalScoreSum() + "/" + profile.MAX_TOTAL_SCORE);
+        hiraganaPanel.refreshColors(profile);
+        katakanaPanel.refreshColors(profile);
     }
 
     /**
@@ -205,6 +209,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
+        JsonFileWriter.saveProfile(profile, "profiles");
         refresh();
     }//GEN-LAST:event_formComponentShown
 

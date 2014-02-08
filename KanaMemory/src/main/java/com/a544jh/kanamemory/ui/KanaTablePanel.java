@@ -7,12 +7,19 @@ package com.a544jh.kanamemory.ui;
 
 import com.a544jh.kanamemory.characters.CharacterType;
 import com.a544jh.kanamemory.characters.KanaSyllable;
+import com.a544jh.kanamemory.profile.PlayerProfile;
 import java.awt.Component;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.List;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.Border;
+import javax.swing.border.EtchedBorder;
 
 /**
  *
@@ -87,6 +94,9 @@ public class KanaTablePanel extends javax.swing.JPanel {
     private void mapPanel(JPanel panel, EnumSet<KanaSyllable> sset) {
         Iterator<KanaSyllable> it = sset.iterator();
         for (Component c : panel.getComponents()) {
+            if (c instanceof JLabel) {
+                c.addMouseListener(new LabelListener());
+            }
             if (c instanceof KanaTableToggleButton) {
                 KanaTableToggleButton ktb = (KanaTableToggleButton) c;
                 ktb.setSyllable(it.next());
@@ -94,15 +104,80 @@ public class KanaTablePanel extends javax.swing.JPanel {
         }
     }
 
-    public void refresh() {
+    public void refreshColors(PlayerProfile profile) {
         for (JPanel jPanel : ktbpanels) {
             for (Component c : jPanel.getComponents()) {
                 if (c instanceof KanaTableToggleButton) {
                     KanaTableToggleButton ktb = (KanaTableToggleButton) c;
-                    ktb.refresh();
+                    ktb.refreshColor(profile);
                 }
             }
         }
+    }
+
+    public void selectColumn(JPanel panel) {
+        boolean whole = wholeColumnSelected(panel);
+        for (Component c : panel.getComponents()) {
+            if (c instanceof KanaTableToggleButton) {
+                KanaTableToggleButton ktb = (KanaTableToggleButton) c;
+                if (whole){
+                    ktb.setSelected(false);
+                } else {
+                    ktb.setSelected(true);
+                }
+            }
+        }
+    }
+    
+    public boolean wholeColumnSelected(JPanel panel){
+        for (Component c : panel.getComponents()) {
+            if (c instanceof KanaTableToggleButton) {
+                KanaTableToggleButton ktb = (KanaTableToggleButton) c;
+                if (!ktb.isSelected()){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    class LabelListener implements MouseListener {
+
+        String labeltext;
+        Border labelborder;
+
+        @Override
+        public void mouseClicked(MouseEvent me) {
+            JLabel label = (JLabel) me.getSource();
+            selectColumn((JPanel) label.getParent());
+        }
+
+        @Override
+        public void mousePressed(MouseEvent me) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent me) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent me) {
+            JLabel label = (JLabel) me.getSource();
+            labelborder = label.getBorder();
+            label.setBorder(new EtchedBorder());
+            labeltext = label.getText();
+            label.setText("▼");
+        }
+
+        @Override
+        public void mouseExited(MouseEvent me) {
+            JLabel label = (JLabel) me.getSource();
+            label.setBorder(labelborder);
+            label.setText(labeltext);
+        }
+
     }
 
     /**
@@ -251,9 +326,9 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridLayout(2, 0));
 
-        jPanel13.setLayout(new java.awt.GridLayout());
+        jPanel13.setLayout(new java.awt.GridLayout(1, 0, 1, 0));
 
-        nnPanel.setLayout(new java.awt.GridLayout(6, 0));
+        nnPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
 
         jLabel23.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -272,7 +347,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
         jPanel13.add(nnPanel);
 
-        wPanel.setLayout(new java.awt.GridLayout(6, 0));
+        wPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
 
         jLabel22.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -306,7 +381,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
         jPanel13.add(wPanel);
 
-        rPanel.setLayout(new java.awt.GridLayout(6, 0));
+        rPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
 
         jLabel21.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -345,7 +420,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
         jPanel13.add(rPanel);
 
-        yPanel.setLayout(new java.awt.GridLayout(6, 0));
+        yPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
 
         jLabel20.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -374,7 +449,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
         jPanel13.add(yPanel);
 
-        mPanel.setLayout(new java.awt.GridLayout(6, 0));
+        mPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
 
         jLabel19.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -413,7 +488,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
         jPanel13.add(mPanel);
 
-        hPanel.setLayout(new java.awt.GridLayout(6, 0));
+        hPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
 
         jLabel18.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -452,7 +527,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
         jPanel13.add(hPanel);
 
-        nPanel.setLayout(new java.awt.GridLayout(6, 0));
+        nPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -491,7 +566,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
         jPanel13.add(nPanel);
 
-        tPanel.setLayout(new java.awt.GridLayout(6, 0));
+        tPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
 
         jLabel16.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -530,7 +605,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
         jPanel13.add(tPanel);
 
-        sPanel.setLayout(new java.awt.GridLayout(6, 0));
+        sPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
 
         jLabel15.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -569,7 +644,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
         jPanel13.add(sPanel);
 
-        kPanel.setLayout(new java.awt.GridLayout(6, 0));
+        kPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -608,7 +683,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
         jPanel13.add(kPanel);
 
-        vocPanel.setLayout(new java.awt.GridLayout(6, 0));
+        vocPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -647,7 +722,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
         jPanel13.add(vocPanel);
 
-        labelsPanel.setLayout(new java.awt.GridLayout(6, 0));
+        labelsPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
         labelsPanel.add(filler1);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
@@ -679,13 +754,13 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
         add(jPanel13);
 
-        jPanel14.setLayout(new java.awt.GridLayout());
+        jPanel14.setLayout(new java.awt.GridLayout(1, 0, 1, 0));
         jPanel14.add(filler12);
         jPanel14.add(filler13);
         jPanel14.add(filler14);
         jPanel14.add(filler15);
 
-        pPanel.setLayout(new java.awt.GridLayout(6, 0));
+        pPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
 
         jLabel27.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -724,7 +799,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
         jPanel14.add(pPanel);
 
-        bPanel.setLayout(new java.awt.GridLayout(6, 0));
+        bPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
 
         jLabel26.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -764,7 +839,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
         jPanel14.add(bPanel);
         jPanel14.add(filler10);
 
-        dPanel.setLayout(new java.awt.GridLayout(6, 0));
+        dPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
 
         jLabel25.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -803,7 +878,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
         jPanel14.add(dPanel);
 
-        zPanel.setLayout(new java.awt.GridLayout(6, 0));
+        zPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
 
         jLabel24.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -842,7 +917,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
         jPanel14.add(zPanel);
 
-        gPanel.setLayout(new java.awt.GridLayout(6, 0));
+        gPanel.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -882,7 +957,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
         jPanel14.add(gPanel);
         jPanel14.add(filler11);
 
-        labelsPanel1.setLayout(new java.awt.GridLayout(6, 0));
+        labelsPanel1.setLayout(new java.awt.GridLayout(6, 0, 0, 1));
         labelsPanel1.add(filler2);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N

@@ -8,15 +8,15 @@ package com.a544jh.kanamemory.profile;
 import com.a544jh.kanamemory.characters.CharacterType;
 import com.a544jh.kanamemory.characters.KanaCharacter;
 import com.a544jh.kanamemory.characters.KanaSyllable;
+import java.awt.Color;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.Map;
 
 /**
  * The representation of a player's profile, containing its name and a score for
- * each Japanese kana character.
- * The profile has a mapping of each possible KanaCharacter, excluding the romaji
- * forms.
+ * each Japanese kana character. The profile has a mapping of each possible
+ * KanaCharacter, excluding the romaji forms.
  */
 public class PlayerProfile {
 
@@ -79,8 +79,8 @@ public class PlayerProfile {
             scoreMap.put(syllable, oldscore + score);
         }
     }
-    
-    public int getTotalScoreSum(){
+
+    public int getTotalScoreSum() {
         int sum = 0;
         for (CharacterType c : kanaScores.keySet()) {
             for (Integer i : kanaScores.get(c).values()) {
@@ -91,7 +91,30 @@ public class PlayerProfile {
     }
 
     public double getCompletionPrecentage() {
-        return ((double)getTotalScoreSum() /  MAX_TOTAL_SCORE) * 100;
+        return ((double) getTotalScoreSum() / MAX_TOTAL_SCORE) * 100;
     }
 
+    public Color getCharacterColor(KanaCharacter c) {
+        return getCharacterColor(c.getSyllable(), c.getType());
+    }
+
+    public Color getCharacterColor(KanaSyllable syllable, CharacterType type) {
+        int score = getScore(syllable, type);
+        //Green
+        if (score >= 0) {
+            double cofficient = -255.0 / MAX_CHARACTER_SCORE;
+            int val = (int) (score * cofficient + 255);
+            return new Color(val, 255, val);
+            //Red
+        } else if (score <= 0) {
+            if (score < -20) {
+                score = -20;
+            }
+            double cofficient = 255.0 / MAX_CHARACTER_SCORE;
+            int val = (int) (score * cofficient + 255);
+            return new Color(255, val, val);
+        } else {
+            return new Color(255, 255, 255);
+        }
+    }
 }

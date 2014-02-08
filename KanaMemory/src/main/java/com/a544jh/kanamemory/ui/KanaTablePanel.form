@@ -23,6 +23,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
         <Property name="columns" type="int" value="0"/>
+        <Property name="horizontalGap" type="int" value="1"/>
         <Property name="rows" type="int" value="1"/>
       </Layout>
       <SubComponents>
@@ -31,6 +32,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel23">
@@ -103,6 +105,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel22">
@@ -187,6 +190,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel21">
@@ -275,6 +279,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel20">
@@ -355,6 +360,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel19">
@@ -443,6 +449,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel18">
@@ -531,6 +538,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel17">
@@ -619,6 +627,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel16">
@@ -707,6 +716,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel15">
@@ -795,6 +805,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel8">
@@ -883,6 +894,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel7">
@@ -971,6 +983,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.Box$Filler" name="filler1">
@@ -1036,6 +1049,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
         <Property name="columns" type="int" value="0"/>
+        <Property name="horizontalGap" type="int" value="1"/>
         <Property name="rows" type="int" value="1"/>
       </Layout>
       <SubComponents>
@@ -1084,6 +1098,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel27">
@@ -1172,6 +1187,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel26">
@@ -1270,6 +1286,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel25">
@@ -1358,6 +1375,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel24">
@@ -1446,6 +1464,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel9">
@@ -1544,6 +1563,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="0"/>
             <Property name="rows" type="int" value="6"/>
+            <Property name="verticalGap" type="int" value="1"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.Box$Filler" name="filler2">

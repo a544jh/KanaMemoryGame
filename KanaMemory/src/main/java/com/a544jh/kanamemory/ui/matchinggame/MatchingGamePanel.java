@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.a544jh.kanamemory.ui;
+package com.a544jh.kanamemory.ui.matchinggame;
 
 import com.a544jh.kanamemory.characters.KanaCharacter;
 import com.a544jh.kanamemory.gamelogic.MatchingGame;
+import com.a544jh.kanamemory.ui.GamePanel;
+import com.a544jh.kanamemory.ui.KanaCharacterButton;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -134,7 +136,7 @@ public class MatchingGamePanel extends javax.swing.JPanel implements GamePanel{
 
         setPreferredSize(new java.awt.Dimension(500, 600));
 
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
         kanaCharacterButton2.setText("あ");
         kanaCharacterButton2.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
@@ -156,7 +158,7 @@ public class MatchingGamePanel extends javax.swing.JPanel implements GamePanel{
         kanaCharacterButton6.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         jPanel1.add(kanaCharacterButton6);
 
-        jPanel2.setLayout(new java.awt.GridLayout());
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
         kanaCharacterButton7.setText("あ");
         kanaCharacterButton7.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
