@@ -39,4 +39,12 @@ public class KanaTableToggleButton extends JToggleButton {
         this.ctype = ctype;
     }
 
+    public KanaSyllable getSyllable() {
+        return syllable;
+    }
+
+    public CharacterType getCtype() {
+        return ctype;
+    }
+
 }

@@ -68,4 +68,21 @@ public class JsonFileWriter {
 
     }
 
+    public static void deleteProfile(String profilename, String filename) {
+        File file = new File(filename);
+        JSONObject jo = null;
+        try {
+            //Read the JSONObject from the file
+            jo = JsonFileReader.readFileToJsonObject(file);
+        } catch (FileNotFoundException | JSONException ex) {
+            Logger.getLogger(JsonFileWriter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jo.remove(profilename);
+        try (FileWriter writer = new FileWriter(file)) {
+            writer.write(jo.toString(4));
+        } catch (IOException | JSONException ex) {
+            Logger.getLogger(JsonFileWriter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

@@ -17,9 +17,10 @@ import java.util.Iterator;
 import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /**
  *
@@ -29,6 +30,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
 
     private CharacterType ctype;
     private List<JPanel> ktbpanels;
+    private List<SelectionChangeListener> scListeners;
 
     /**
      * Creates new form KanaTablePanel
@@ -38,6 +40,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
         ktbpanels = new ArrayList<>();
         makePanelsList();
         mapSyllablesToButtons();
+        scListeners = new ArrayList<>();
     }
 
     private void makePanelsList() {
@@ -73,25 +76,26 @@ public class KanaTablePanel extends javax.swing.JPanel {
     }
 
     private void mapSyllablesToButtons() {
-        mapPanel(vocPanel, EnumSet.range(KanaSyllable.A, KanaSyllable.O));
-        mapPanel(kPanel, EnumSet.range(KanaSyllable.KA, KanaSyllable.KO));
-        mapPanel(sPanel, EnumSet.range(KanaSyllable.SA, KanaSyllable.SO));
-        mapPanel(tPanel, EnumSet.range(KanaSyllable.TA, KanaSyllable.TO));
-        mapPanel(nPanel, EnumSet.range(KanaSyllable.NA, KanaSyllable.NO));
-        mapPanel(hPanel, EnumSet.range(KanaSyllable.HA, KanaSyllable.HO));
-        mapPanel(mPanel, EnumSet.range(KanaSyllable.MA, KanaSyllable.MO));
-        mapPanel(yPanel, EnumSet.range(KanaSyllable.YA, KanaSyllable.YO));
-        mapPanel(rPanel, EnumSet.range(KanaSyllable.RA, KanaSyllable.RO));
-        mapPanel(wPanel, EnumSet.range(KanaSyllable.WA, KanaSyllable.WO));
-        mapPanel(nnPanel, EnumSet.of(KanaSyllable.N));
-        mapPanel(gPanel, EnumSet.range(KanaSyllable.GA, KanaSyllable.GO));
-        mapPanel(zPanel, EnumSet.range(KanaSyllable.ZA, KanaSyllable.ZO));
-        mapPanel(dPanel, EnumSet.range(KanaSyllable.DA, KanaSyllable.DO));
-        mapPanel(bPanel, EnumSet.range(KanaSyllable.BA, KanaSyllable.BO));
-        mapPanel(pPanel, EnumSet.range(KanaSyllable.PA, KanaSyllable.PO));
+        initPanel(vocPanel, EnumSet.range(KanaSyllable.A, KanaSyllable.O));
+        initPanel(kPanel, EnumSet.range(KanaSyllable.KA, KanaSyllable.KO));
+        initPanel(sPanel, EnumSet.range(KanaSyllable.SA, KanaSyllable.SO));
+        initPanel(tPanel, EnumSet.range(KanaSyllable.TA, KanaSyllable.TO));
+        initPanel(nPanel, EnumSet.range(KanaSyllable.NA, KanaSyllable.NO));
+        initPanel(hPanel, EnumSet.range(KanaSyllable.HA, KanaSyllable.HO));
+        initPanel(mPanel, EnumSet.range(KanaSyllable.MA, KanaSyllable.MO));
+        initPanel(yPanel, EnumSet.range(KanaSyllable.YA, KanaSyllable.YO));
+        initPanel(rPanel, EnumSet.range(KanaSyllable.RA, KanaSyllable.RO));
+        initPanel(wPanel, EnumSet.range(KanaSyllable.WA, KanaSyllable.WO));
+        initPanel(nnPanel, EnumSet.of(KanaSyllable.N));
+        initPanel(gPanel, EnumSet.range(KanaSyllable.GA, KanaSyllable.GO));
+        initPanel(zPanel, EnumSet.range(KanaSyllable.ZA, KanaSyllable.ZO));
+        initPanel(dPanel, EnumSet.range(KanaSyllable.DA, KanaSyllable.DO));
+        initPanel(bPanel, EnumSet.range(KanaSyllable.BA, KanaSyllable.BO));
+        initPanel(pPanel, EnumSet.range(KanaSyllable.PA, KanaSyllable.PO));
     }
 
-    private void mapPanel(JPanel panel, EnumSet<KanaSyllable> sset) {
+    private void initPanel(JPanel panel, EnumSet<KanaSyllable> sset) {
+        ChangeListener notifier = new SelectionChangeNotifier();
         Iterator<KanaSyllable> it = sset.iterator();
         for (Component c : panel.getComponents()) {
             if (c instanceof JLabel) {
@@ -100,13 +104,14 @@ public class KanaTablePanel extends javax.swing.JPanel {
             if (c instanceof KanaTableToggleButton) {
                 KanaTableToggleButton ktb = (KanaTableToggleButton) c;
                 ktb.setSyllable(it.next());
+                ktb.addChangeListener(notifier);
             }
         }
     }
 
     public void refreshColors(PlayerProfile profile) {
-        for (JPanel jPanel : ktbpanels) {
-            for (Component c : jPanel.getComponents()) {
+        for (JPanel panel : ktbpanels) {
+            for (Component c : panel.getComponents()) {
                 if (c instanceof KanaTableToggleButton) {
                     KanaTableToggleButton ktb = (KanaTableToggleButton) c;
                     ktb.refreshColor(profile);
@@ -120,7 +125,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
         for (Component c : panel.getComponents()) {
             if (c instanceof KanaTableToggleButton) {
                 KanaTableToggleButton ktb = (KanaTableToggleButton) c;
-                if (whole){
+                if (whole) {
                     ktb.setSelected(false);
                 } else {
                     ktb.setSelected(true);
@@ -128,17 +133,33 @@ public class KanaTablePanel extends javax.swing.JPanel {
             }
         }
     }
-    
-    public boolean wholeColumnSelected(JPanel panel){
+
+    public boolean wholeColumnSelected(JPanel panel) {
         for (Component c : panel.getComponents()) {
             if (c instanceof KanaTableToggleButton) {
                 KanaTableToggleButton ktb = (KanaTableToggleButton) c;
-                if (!ktb.isSelected()){
+                if (!ktb.isSelected()) {
                     return false;
                 }
             }
         }
         return true;
+    }
+
+    public EnumSet<KanaSyllable> getSelectedSyllables() {
+        EnumSet<KanaSyllable> selected = EnumSet.noneOf(KanaSyllable.class);
+
+        for (JPanel panel : ktbpanels) {
+            for (Component c : panel.getComponents()) {
+                if (c instanceof KanaTableToggleButton) {
+                    KanaTableToggleButton ktb = (KanaTableToggleButton) c;
+                    if (ktb.isSelected()) {
+                        selected.add(ktb.getSyllable());
+                    }
+                }
+            }
+        }
+        return selected;
     }
 
     class LabelListener implements MouseListener {
@@ -178,6 +199,25 @@ public class KanaTablePanel extends javax.swing.JPanel {
             label.setText(labeltext);
         }
 
+    }
+    
+    class SelectionChangeNotifier implements ChangeListener {
+
+        @Override
+        public void stateChanged(ChangeEvent ce) {
+            for (SelectionChangeListener l : scListeners){
+                l.selectionChanged();
+            }
+        }
+        
+    }
+    
+    public interface SelectionChangeListener {
+        public void selectionChanged();
+    }
+    
+    public void addSelectionChangeListener(SelectionChangeListener l){
+        scListeners.add(l);
     }
 
     /**

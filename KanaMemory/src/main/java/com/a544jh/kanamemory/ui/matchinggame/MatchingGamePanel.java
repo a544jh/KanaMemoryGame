@@ -160,8 +160,8 @@ public class MatchingGamePanel extends javax.swing.JPanel implements GamePanel{
 
         jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
-        kanaCharacterButton7.setText("あ");
-        kanaCharacterButton7.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        kanaCharacterButton7.setText("ka");
+        kanaCharacterButton7.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         kanaCharacterButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kanaCharacterButton7ActionPerformed(evt);
@@ -169,20 +169,20 @@ public class MatchingGamePanel extends javax.swing.JPanel implements GamePanel{
         });
         jPanel2.add(kanaCharacterButton7);
 
-        kanaCharacterButton8.setText("あ");
-        kanaCharacterButton8.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        kanaCharacterButton8.setText("ka");
+        kanaCharacterButton8.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jPanel2.add(kanaCharacterButton8);
 
-        kanaCharacterButton9.setText("あ");
-        kanaCharacterButton9.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        kanaCharacterButton9.setText("ka");
+        kanaCharacterButton9.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jPanel2.add(kanaCharacterButton9);
 
-        kanaCharacterButton10.setText("あ");
-        kanaCharacterButton10.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        kanaCharacterButton10.setText("ka");
+        kanaCharacterButton10.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jPanel2.add(kanaCharacterButton10);
 
-        kanaCharacterButton11.setText("あ");
-        kanaCharacterButton11.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        kanaCharacterButton11.setText("ka");
+        kanaCharacterButton11.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jPanel2.add(kanaCharacterButton11);
 
         backButton.setText("Back");
@@ -196,27 +196,27 @@ public class MatchingGamePanel extends javax.swing.JPanel implements GamePanel{
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(backButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(475, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(backButton)
-                .addGap(92, 92, 92)
+                .addGap(108, 108, 108)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(331, Short.MAX_VALUE))
+                .addContainerGap(329, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

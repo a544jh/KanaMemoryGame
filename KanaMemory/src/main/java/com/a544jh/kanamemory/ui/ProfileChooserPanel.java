@@ -6,16 +6,20 @@
 package com.a544jh.kanamemory.ui;
 
 import com.a544jh.kanamemory.io.JsonFileReader;
+import com.a544jh.kanamemory.io.JsonFileWriter;
 import com.a544jh.kanamemory.profile.PlayerProfile;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author axel
  */
 public class ProfileChooserPanel extends javax.swing.JPanel {
+
+    DefaultListModel<String> listmodel;
 
     /**
      * Creates new form ProfileChooserPanel
@@ -26,7 +30,7 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
     }
 
     public void populateList() {
-        DefaultListModel<String> listmodel = new DefaultListModel<>();
+        listmodel = new DefaultListModel<>();
         ArrayList<String> names = JsonFileReader.ProfilesList("profiles");
         for (String string : names) {
             listmodel.addElement(string);
@@ -59,6 +63,11 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         loadProfileButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        createProfileButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        deleteButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(500, 600));
 
@@ -85,6 +94,36 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setText("Create new");
+
+        jTextField1.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                jTextField1CaretUpdate(evt);
+            }
+        });
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        createProfileButton.setText("Create");
+        createProfileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createProfileButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Name:");
+
+        deleteButton.setText("Delete");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,12 +132,21 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 283, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(loadProfileButton)))
+                        .addComponent(deleteButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(loadProfileButton))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(createProfileButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(0, 283, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -109,8 +157,17 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(loadProfileButton)
-                .addContainerGap(383, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(loadProfileButton)
+                    .addComponent(deleteButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createProfileButton)
+                    .addComponent(jLabel3))
+                .addContainerGap(324, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -125,11 +182,49 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jList1MouseClicked
 
+    private void createProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createProfileButtonActionPerformed
+        // TODO add your handling code here:
+        PlayerProfile p = new PlayerProfile(jTextField1.getText());
+        JsonFileWriter.saveProfile(p, "profiles");
+        createProfileButton.setEnabled(false);
+        populateList();
+    }//GEN-LAST:event_createProfileButtonActionPerformed
+
+    private void jTextField1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_jTextField1CaretUpdate
+        // TODO add your handling code here:
+        if (listmodel.contains(jTextField1.getText())) {
+            createProfileButton.setEnabled(false);
+        } else {
+            createProfileButton.setEnabled(true);
+        }
+    }//GEN-LAST:event_jTextField1CaretUpdate
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(this, "Are you sure?", "Delete Profile",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
+            JsonFileWriter.deleteProfile((String) jList1.getSelectedValue(), "profiles");
+            populateList();
+        }
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+        if (!listmodel.contains(jTextField1.getText())) {
+            createProfileButtonActionPerformed(evt);
+        }
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton createProfileButton;
+    private javax.swing.JButton deleteButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton loadProfileButton;
     // End of variables declaration//GEN-END:variables
 }

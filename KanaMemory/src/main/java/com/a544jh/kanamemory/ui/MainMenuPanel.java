@@ -11,6 +11,7 @@ import com.a544jh.kanamemory.characters.KanaSyllable;
 import com.a544jh.kanamemory.gamelogic.MatchingGame;
 import com.a544jh.kanamemory.io.JsonFileWriter;
 import com.a544jh.kanamemory.profile.PlayerProfile;
+import com.a544jh.kanamemory.ui.matchinggame.MatchingGameConfigPanel;
 import java.awt.CardLayout;
 import java.util.EnumSet;
 
@@ -198,13 +199,18 @@ public class MainMenuPanel extends javax.swing.JPanel {
     private void matchingGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matchingGameButtonActionPerformed
         // TODO add your handling code here:
         CardLayout cl = (CardLayout) getParent().getLayout();
-        MatchingGame mgame = new MatchingGame(profile, EnumSet.range(KanaSyllable.A, KanaSyllable.O),
-                CharacterType.HIRAGANA, CharacterType.ROMAJI, 5);
-        MatchingGamePanel mgpanel = new MatchingGamePanel();
-        mgpanel.setGame(mgame);
-        mgpanel.startRound();
-        getParent().add(mgpanel, "MatchingGame");
-        cl.show(getParent(), "MatchingGame");
+//        MatchingGame mgame = new MatchingGame(profile, EnumSet.range(KanaSyllable.A, KanaSyllable.O),
+//                CharacterType.HIRAGANA, CharacterType.ROMAJI, 5);
+//        MatchingGamePanel mgpanel = new MatchingGamePanel();
+//        mgpanel.setGame(mgame);
+//        mgpanel.startRound();
+//        getParent().add(mgpanel, "MatchingGame");
+//        cl.show(getParent(), "MatchingGame");
+        MatchingGameConfigPanel mgcp = new MatchingGameConfigPanel();
+        mgcp.setProfile(profile);
+        mgcp.refresh();
+        getParent().add(mgcp, "MatchingGameConfig");
+        cl.show(getParent(), "MatchingGameConfig");
     }//GEN-LAST:event_matchingGameButtonActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
