@@ -24,3 +24,9 @@ Hiomista, testejä...    2h
 
 6.2.2014
 Sekvenssikaavio 1h
+
+8.2.2014
+Käyttöliittymää, värilogiikka	4h
+
+10.2.2014
+Testejä, javadoc..	1h

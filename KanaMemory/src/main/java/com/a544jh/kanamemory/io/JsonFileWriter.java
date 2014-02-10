@@ -59,6 +59,7 @@ public class JsonFileWriter {
         try {
             //Put the profile's scores to be saved in the JSONOBject with the name as key
             jo.put(profile.getName(), profile.getScoresMap());
+            //Write the actual file
             try (FileWriter writer = new FileWriter(file)) {
                 writer.write(jo.toString(4));
             }
@@ -67,7 +68,14 @@ public class JsonFileWriter {
         }
 
     }
-
+    
+    /**
+     * Removes a PlayerProfile from a JSON-formatted file.
+     * This method removes a key-value pair from the JSON-mapping using the PlayerProfile's
+     * name attribute as the key.
+     * @param profilename The name attribute of the profile to be removed (i.e. the key)
+     * @param filename Name of the JSON-formatted file.
+     */
     public static void deleteProfile(String profilename, String filename) {
         File file = new File(filename);
         JSONObject jo = null;
@@ -77,7 +85,9 @@ public class JsonFileWriter {
         } catch (FileNotFoundException | JSONException ex) {
             Logger.getLogger(JsonFileWriter.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //Remove the profile from the JSON-mapping
         jo.remove(profilename);
+        //Write the actual file
         try (FileWriter writer = new FileWriter(file)) {
             writer.write(jo.toString(4));
         } catch (IOException | JSONException ex) {

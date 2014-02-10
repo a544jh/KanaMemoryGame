@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.EnumSet;
 
 /**
- *
+ *Game logic class for the matching game.
  * @author axel
  */
 public class MatchingGame {
@@ -25,7 +25,14 @@ public class MatchingGame {
     private int charsPerRound;
     private ArrayList<KanaSyllable> syllableList;
     
-
+    /**
+     * Creates a new MatchingGame instance.
+     * @param profile The profile to change the scores of.
+     * @param kanaSet Set of KanaSyllables to be used in the game.
+     * @param cType1 CharacterType to match "from"
+     * @param cType2 CharacterType to match "to"
+     * @param charsPerRound Number of characters per round.
+     */
     public MatchingGame(PlayerProfile profile, EnumSet<KanaSyllable> kanaSet, 
             CharacterType cType1, CharacterType cType2, int charsPerRound) {
         this.profile = profile;
@@ -40,6 +47,11 @@ public class MatchingGame {
         }
     }
     
+    /**
+     * Get the KanaCharacters to be used in the game.
+     * @return An ArrayList for each CharacterType with randomly selected syllables.
+     * The length of the lists is determined by the charsPerRound attribute.
+     */
     public ArrayList[] getCharacters(){
         Collections.shuffle(syllableList);
         ArrayList[] charLists = new ArrayList[2];
@@ -55,7 +67,12 @@ public class MatchingGame {
         
         return charLists;
     }
-    
+    /**
+     * Makes the match of two KanaCharacters and takes care of the scoring.
+     * @param c1
+     * @param c2
+     * @return true if the characters match.
+     */
     public boolean matchCharacters(KanaCharacter c1, KanaCharacter c2) {
         if (c1.matchesWith(c2)){
             profile.addScore(c1, 1);

@@ -9,6 +9,7 @@ import com.a544jh.kanamemory.characters.CharacterType;
 import com.a544jh.kanamemory.characters.KanaSyllable;
 import com.a544jh.kanamemory.profile.PlayerProfile;
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -189,6 +190,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
             labelborder = label.getBorder();
             label.setBorder(new EtchedBorder());
             labeltext = label.getText();
+            label.setFont(label.getFont().deriveFont(Font.PLAIN));
             label.setText("▼");
         }
 
@@ -196,6 +198,7 @@ public class KanaTablePanel extends javax.swing.JPanel {
         public void mouseExited(MouseEvent me) {
             JLabel label = (JLabel) me.getSource();
             label.setBorder(labelborder);
+            label.setFont(label.getFont().deriveFont(Font.ITALIC));
             label.setText(labeltext);
         }
 

@@ -77,6 +77,17 @@ public class FileIoTest {
         assertEquals(testProfile2.getScoresMap(), loaded2.getScoresMap());
     }
     
+    @Test
+    public void profileDeleteTest() {
+        JsonFileWriter.saveProfile(testProfile1, "profiles_test.tmp");
+        JsonFileWriter.saveProfile(testProfile2, "profiles_test.tmp");
+        
+        JsonFileWriter.deleteProfile("test2", "profiles_test.tmp");
+        
+        ArrayList<String> names = new ArrayList<>(Arrays.asList("test1"));
+        assertEquals(names, JsonFileReader.ProfilesList("profiles_test.tmp"));
+    }
+    
     @After
     public void tearDown() {
         File tmpfile = new File("profiles_test.tmp");
