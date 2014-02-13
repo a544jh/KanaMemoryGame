@@ -107,8 +107,8 @@ public class PlayerProfile {
             return new Color(val, 255, val);
             //Red
         } else if (score <= 0) {
-            if (score < -20) {
-                score = -20;
+            if (score < -MAX_CHARACTER_SCORE) {
+                score = -MAX_CHARACTER_SCORE;
             }
             double cofficient = 255.0 / MAX_CHARACTER_SCORE;
             int val = (int) (score * cofficient + 255);

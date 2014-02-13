@@ -35,13 +35,13 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
         for (String string : names) {
             listmodel.addElement(string);
         }
-        jList1.setModel(listmodel);
+        profilesList.setModel(listmodel);
     }
 
     private void loadSelectedProfile() {
         // TODO add your handling code here:
         PlayerProfile profile = JsonFileReader.loadProfile(
-                (String) jList1.getSelectedValue(), "profiles");
+                (String) profilesList.getSelectedValue(), "profiles");
         CardLayout cl = (CardLayout) getParent().getLayout();
         MainMenuPanel mainmenu = new MainMenuPanel();
         mainmenu.setProfile(profile);
@@ -61,7 +61,7 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        profilesList = new javax.swing.JList();
         loadProfileButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -74,18 +74,18 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Choose Profile");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        profilesList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+        profilesList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        profilesList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jList1MouseClicked(evt);
+                profilesListMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(profilesList);
 
         loadProfileButton.setText("Load");
         loadProfileButton.addActionListener(new java.awt.event.ActionListener() {
@@ -175,12 +175,12 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
         loadSelectedProfile();
     }//GEN-LAST:event_loadProfileButtonActionPerformed
 
-    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+    private void profilesListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profilesListMouseClicked
         // Also respond to double click
         if (evt.getClickCount() == 2) {
             loadSelectedProfile();
         }
-    }//GEN-LAST:event_jList1MouseClicked
+    }//GEN-LAST:event_profilesListMouseClicked
 
     private void createProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createProfileButtonActionPerformed
         // TODO add your handling code here:
@@ -203,7 +203,7 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (JOptionPane.showConfirmDialog(this, "Are you sure?", "Delete Profile",
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
-            JsonFileWriter.deleteProfile((String) jList1.getSelectedValue(), "profiles");
+            JsonFileWriter.deleteProfile((String) profilesList.getSelectedValue(), "profiles");
             populateList();
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
@@ -222,9 +222,9 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton loadProfileButton;
+    private javax.swing.JList profilesList;
     // End of variables declaration//GEN-END:variables
 }

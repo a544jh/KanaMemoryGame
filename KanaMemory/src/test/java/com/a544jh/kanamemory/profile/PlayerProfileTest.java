@@ -8,6 +8,7 @@ package com.a544jh.kanamemory.profile;
 import com.a544jh.kanamemory.characters.CharacterType;
 import com.a544jh.kanamemory.characters.KanaCharacter;
 import com.a544jh.kanamemory.characters.KanaSyllable;
+import java.awt.Color;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -117,5 +118,21 @@ public class PlayerProfileTest {
         }
         
         assertEquals(100, p.getCompletionPrecentage(),0.001);
+    }
+    
+    @Test
+    public void greenColorTest(){
+        p.addScore(KanaSyllable.A,CharacterType.HIRAGANA, p.MAX_CHARACTER_SCORE);
+        Color c = p.getCharacterColor(KanaSyllable.A,CharacterType.HIRAGANA);
+        
+        assertEquals(new Color(0, 255, 0), c);
+    }
+    
+    @Test
+    public void redColorTest() {
+        p.addScore(KanaSyllable.A,CharacterType.HIRAGANA, -p.MAX_CHARACTER_SCORE - 100);
+        Color c = p.getCharacterColor(KanaSyllable.A,CharacterType.HIRAGANA);
+        
+        assertEquals(new Color(255, 0, 0), c);
     }
 }

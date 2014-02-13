@@ -10,8 +10,9 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 
 /**
- * Hello world!
- *
+ * This is just testing stuff.
+ * Run the UI by running the MainWindow file!
+ * 
  */
 public class App {
 
