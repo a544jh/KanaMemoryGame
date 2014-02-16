@@ -162,11 +162,6 @@ public class MatchingGamePanel extends javax.swing.JPanel implements GamePanel{
 
         kanaCharacterButton7.setText("ka");
         kanaCharacterButton7.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        kanaCharacterButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kanaCharacterButton7ActionPerformed(evt);
-            }
-        });
         jPanel2.add(kanaCharacterButton7);
 
         kanaCharacterButton8.setText("ka");
@@ -218,10 +213,6 @@ public class MatchingGamePanel extends javax.swing.JPanel implements GamePanel{
                 .addContainerGap(316, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void kanaCharacterButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kanaCharacterButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kanaCharacterButton7ActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:

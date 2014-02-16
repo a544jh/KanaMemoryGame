@@ -39,7 +39,6 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
     }
 
     private void loadSelectedProfile() {
-        // TODO add your handling code here:
         PlayerProfile profile = JsonFileReader.loadProfile(
                 (String) profilesList.getSelectedValue(), "profiles");
         CardLayout cl = (CardLayout) getParent().getLayout();
@@ -183,7 +182,6 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_profilesListMouseClicked
 
     private void createProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createProfileButtonActionPerformed
-        // TODO add your handling code here:
         PlayerProfile p = new PlayerProfile(jTextField1.getText());
         JsonFileWriter.saveProfile(p, "profiles");
         createProfileButton.setEnabled(false);
@@ -191,7 +189,6 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_createProfileButtonActionPerformed
 
     private void jTextField1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_jTextField1CaretUpdate
-        // TODO add your handling code here:
         if (listmodel.contains(jTextField1.getText())) {
             createProfileButton.setEnabled(false);
         } else {
@@ -200,7 +197,6 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField1CaretUpdate
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
         if (JOptionPane.showConfirmDialog(this, "Are you sure?", "Delete Profile",
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
             JsonFileWriter.deleteProfile((String) profilesList.getSelectedValue(), "profiles");
@@ -209,7 +205,6 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
         if (!listmodel.contains(jTextField1.getText())) {
             createProfileButtonActionPerformed(evt);
         }

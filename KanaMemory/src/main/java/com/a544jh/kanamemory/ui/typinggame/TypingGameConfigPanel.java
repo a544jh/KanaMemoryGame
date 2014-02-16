@@ -3,24 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.a544jh.kanamemory.ui.matchinggame;
+package com.a544jh.kanamemory.ui.typinggame;
 
+import com.a544jh.kanamemory.ui.matchinggame.*;
 import com.a544jh.kanamemory.characters.CharacterType;
+import com.a544jh.kanamemory.characters.KanaSyllable;
 import com.a544jh.kanamemory.gamelogic.MatchingGame;
+import com.a544jh.kanamemory.gamelogic.TypingGame;
 import com.a544jh.kanamemory.profile.PlayerProfile;
 import com.a544jh.kanamemory.ui.GameConfigPanel;
 import com.a544jh.kanamemory.ui.KanaTablePanel;
 import java.awt.CardLayout;
+import java.util.EnumSet;
 
 /**
  *
  * @author axel
  */
-public class MatchingGameConfigPanel extends javax.swing.JPanel implements GameConfigPanel {
+public class TypingGameConfigPanel extends javax.swing.JPanel implements GameConfigPanel {
 
     PlayerProfile profile;
     final String COMPONENT_NAME;
     KanaTablePanel.SelectionChangeListener scListener = new KanaTablePanel.SelectionChangeListener() {
+
         @Override
         public void selectionChanged() {
             if (kanaTablePanel1.getSelectedSyllables().size() < 5) {
@@ -32,10 +37,10 @@ public class MatchingGameConfigPanel extends javax.swing.JPanel implements GameC
     };
 
     /**
-     * Creates new form MatchingGameConfigPanel
+     * Creates new form TypingGameConfigPanel
      */
-    public MatchingGameConfigPanel() {
-        COMPONENT_NAME = "MatchingGameConfig";
+    public TypingGameConfigPanel() {
+        COMPONENT_NAME = "TypingGameConfig";
         initComponents();
     }
 
@@ -63,7 +68,6 @@ public class MatchingGameConfigPanel extends javax.swing.JPanel implements GameC
         jLabel1 = new javax.swing.JLabel();
         hiraganaRadioButton = new javax.swing.JRadioButton();
         katakanaRadioButton = new javax.swing.JRadioButton();
-        kanaRadioButton = new javax.swing.JRadioButton();
         beginButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -79,7 +83,7 @@ public class MatchingGameConfigPanel extends javax.swing.JPanel implements GameC
         kanaTablePanel1.addSelectionChangeListener(scListener);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setText("Match");
+        jLabel1.setText("Type");
 
         buttonGroup1.add(hiraganaRadioButton);
         hiraganaRadioButton.setSelected(true);
@@ -98,9 +102,6 @@ public class MatchingGameConfigPanel extends javax.swing.JPanel implements GameC
             }
         });
 
-        buttonGroup1.add(kanaRadioButton);
-        kanaRadioButton.setText("Hiragana - Katakana");
-
         beginButton.setText("Begin!");
         beginButton.setEnabled(false);
         beginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -116,31 +117,27 @@ public class MatchingGameConfigPanel extends javax.swing.JPanel implements GameC
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kanaTablePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(beginButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(kanaTablePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(backButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(beginButton))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
+                                .addComponent(jLabel1))
+                            .addComponent(jLabel2))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(147, 147, 147)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kanaRadioButton)
                     .addComponent(katakanaRadioButton)
                     .addComponent(hiraganaRadioButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(200, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,9 +150,7 @@ public class MatchingGameConfigPanel extends javax.swing.JPanel implements GameC
                 .addComponent(hiraganaRadioButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(katakanaRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kanaRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(kanaTablePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,23 +173,17 @@ public class MatchingGameConfigPanel extends javax.swing.JPanel implements GameC
 
     private void beginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beginButtonActionPerformed
         CardLayout cl = (CardLayout) getParent().getLayout();
-        CharacterType ctype1, ctype2;
+        CharacterType ctype;
         if (hiraganaRadioButton.isSelected()) {
-            ctype1 = CharacterType.HIRAGANA;
-            ctype2 = CharacterType.ROMAJI;
-        } else if (katakanaRadioButton.isSelected()) {
-            ctype1 = CharacterType.KATAKANA;
-            ctype2 = CharacterType.ROMAJI;
+            ctype = CharacterType.HIRAGANA;
         } else {
-            ctype1 = CharacterType.HIRAGANA;
-            ctype2 = CharacterType.KATAKANA;
+            ctype = CharacterType.KATAKANA;
         }
-        MatchingGame mgame = new MatchingGame(profile, kanaTablePanel1.getSelectedSyllables(), ctype1, ctype2, 5);
-        MatchingGamePanel mgpanel = new MatchingGamePanel();
-        mgpanel.setGame(mgame);
-        mgpanel.startRound();
-        getParent().add(mgpanel, "MatchingGame");
-        cl.show(getParent(), "MatchingGame");
+        TypingGame tgame = new TypingGame(profile, kanaTablePanel1.getSelectedSyllables(), ctype);
+        TypingGamePanel tgpanel = new TypingGamePanel();
+        tgpanel.setGame(tgame);
+        getParent().add(tgpanel, "TypingGame");
+        cl.show(getParent(), "TypingGame");
         getParent().remove(this);
     }//GEN-LAST:event_beginButtonActionPerformed
 
@@ -211,7 +200,6 @@ public class MatchingGameConfigPanel extends javax.swing.JPanel implements GameC
     private javax.swing.JRadioButton hiraganaRadioButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JRadioButton kanaRadioButton;
     private com.a544jh.kanamemory.ui.KanaTablePanel kanaTablePanel1;
     private javax.swing.JRadioButton katakanaRadioButton;
     // End of variables declaration//GEN-END:variables

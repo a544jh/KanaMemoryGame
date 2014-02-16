@@ -12,7 +12,9 @@ import com.a544jh.kanamemory.gamelogic.MatchingGame;
 import com.a544jh.kanamemory.io.JsonFileWriter;
 import com.a544jh.kanamemory.profile.PlayerProfile;
 import com.a544jh.kanamemory.ui.matchinggame.MatchingGameConfigPanel;
+import com.a544jh.kanamemory.ui.typinggame.TypingGameConfigPanel;
 import java.awt.CardLayout;
+import java.awt.Component;
 import java.util.EnumSet;
 
 /**
@@ -20,7 +22,7 @@ import java.util.EnumSet;
  * @author axel
  */
 public class MainMenuPanel extends javax.swing.JPanel {
-
+    
     private PlayerProfile profile;
 
     /**
@@ -29,19 +31,27 @@ public class MainMenuPanel extends javax.swing.JPanel {
     public MainMenuPanel() {
         initComponents();
     }
-
+    
     public void setProfile(PlayerProfile profile) {
         this.profile = profile;
     }
-
+    
     public void refresh() {
         currentProfileLabel.setText("Current profile: " + profile.getName());
         jProgressBar1.setMaximum(profile.MAX_TOTAL_SCORE);
         jProgressBar1.setValue(profile.getTotalScoreSum());
-        totalProgressLabel.setText(String.format("%.2f",profile.getCompletionPrecentage()) + "% "
+        totalProgressLabel.setText(String.format("%.2f", profile.getCompletionPrecentage()) + "% "
                 + profile.getTotalScoreSum() + "/" + profile.MAX_TOTAL_SCORE);
         hiraganaPanel.refreshColors(profile);
         katakanaPanel.refreshColors(profile);
+    }
+    
+    public void switchToConfigPanel(GameConfigPanel gcp) {
+        CardLayout cl = (CardLayout) getParent().getLayout();
+        gcp.setProfile(profile);
+        gcp.refresh();
+        getParent().add((Component) gcp, gcp.getComponentName());
+        cl.show(getParent(), gcp.getComponentName());
     }
 
     /**
@@ -59,7 +69,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         matchingGameButton = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        typingGameButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -97,7 +107,12 @@ public class MainMenuPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton4.setText("Type");
+        typingGameButton.setText("Type");
+        typingGameButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                typingGameButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -107,11 +122,11 @@ public class MainMenuPanel extends javax.swing.JPanel {
                 .addGap(133, 133, 133)
                 .addComponent(matchingGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(typingGameButton)
                 .addContainerGap(211, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton4, matchingGameButton});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {matchingGameButton, typingGameButton});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,11 +134,11 @@ public class MainMenuPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(matchingGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(typingGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(86, 86, 86))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton4, matchingGameButton});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {matchingGameButton, typingGameButton});
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -189,7 +204,6 @@ public class MainMenuPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void changeProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeProfileButtonActionPerformed
-        // TODO add your handling code here:
         CardLayout cl = (CardLayout) getParent().getLayout();
         getParent().add(new ProfileChooserPanel(), "ProfileChooser");
         cl.show(getParent(), "ProfileChooser");
@@ -197,27 +211,17 @@ public class MainMenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_changeProfileButtonActionPerformed
 
     private void matchingGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matchingGameButtonActionPerformed
-        // TODO add your handling code here:
-        CardLayout cl = (CardLayout) getParent().getLayout();
-//        MatchingGame mgame = new MatchingGame(profile, EnumSet.range(KanaSyllable.A, KanaSyllable.O),
-//                CharacterType.HIRAGANA, CharacterType.ROMAJI, 5);
-//        MatchingGamePanel mgpanel = new MatchingGamePanel();
-//        mgpanel.setGame(mgame);
-//        mgpanel.startRound();
-//        getParent().add(mgpanel, "MatchingGame");
-//        cl.show(getParent(), "MatchingGame");
-        MatchingGameConfigPanel mgcp = new MatchingGameConfigPanel();
-        mgcp.setProfile(profile);
-        mgcp.refresh();
-        getParent().add(mgcp, "MatchingGameConfig");
-        cl.show(getParent(), "MatchingGameConfig");
+        switchToConfigPanel(new MatchingGameConfigPanel());
     }//GEN-LAST:event_matchingGameButtonActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-        // TODO add your handling code here:
         JsonFileWriter.saveProfile(profile, "profiles");
         refresh();
     }//GEN-LAST:event_formComponentShown
+
+    private void typingGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typingGameButtonActionPerformed
+        switchToConfigPanel(new TypingGameConfigPanel());
+    }//GEN-LAST:event_typingGameButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -225,7 +229,6 @@ public class MainMenuPanel extends javax.swing.JPanel {
     private javax.swing.JButton changeProfileButton;
     private javax.swing.JLabel currentProfileLabel;
     private com.a544jh.kanamemory.ui.KanaTablePanel hiraganaPanel;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
@@ -235,5 +238,6 @@ public class MainMenuPanel extends javax.swing.JPanel {
     private com.a544jh.kanamemory.ui.KanaTablePanel katakanaPanel;
     private javax.swing.JButton matchingGameButton;
     private javax.swing.JLabel totalProgressLabel;
+    private javax.swing.JButton typingGameButton;
     // End of variables declaration//GEN-END:variables
 }

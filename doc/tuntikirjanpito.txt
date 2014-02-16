@@ -33,3 +33,6 @@ Testejä, javadoc..	1h
 
 13.2.2014
 Toinen sekvenssikaavio, testejä 1,5h
+
+16.2.2014
+TypingGame ja pientä refaktorointia	2h
