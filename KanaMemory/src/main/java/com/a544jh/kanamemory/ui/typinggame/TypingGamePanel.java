@@ -14,12 +14,14 @@ import java.awt.CardLayout;
  */
 public class TypingGamePanel extends javax.swing.JPanel {
 
-    TypingGame game;
+    private TypingGame game;
+    private final String COMPONENT_NAME;
 
     /**
      * Creates new form TypingGamePanel
      */
     public TypingGamePanel() {
+        COMPONENT_NAME = "TypingGame";
         initComponents();
         inputField.setText("");
         hintLabel.setText("");
@@ -148,6 +150,9 @@ public class TypingGamePanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_inputFieldComponentShown
 
+    public String getComponentName() {
+        return COMPONENT_NAME;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;

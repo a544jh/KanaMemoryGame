@@ -22,9 +22,9 @@ import java.util.EnumSet;
  */
 public class TypingGameConfigPanel extends javax.swing.JPanel implements GameConfigPanel {
 
-    PlayerProfile profile;
-    final String COMPONENT_NAME;
-    KanaTablePanel.SelectionChangeListener scListener = new KanaTablePanel.SelectionChangeListener() {
+    private PlayerProfile profile;
+    private final String COMPONENT_NAME;
+    private KanaTablePanel.SelectionChangeListener scListener = new KanaTablePanel.SelectionChangeListener() {
 
         @Override
         public void selectionChanged() {
@@ -182,8 +182,8 @@ public class TypingGameConfigPanel extends javax.swing.JPanel implements GameCon
         TypingGame tgame = new TypingGame(profile, kanaTablePanel1.getSelectedSyllables(), ctype);
         TypingGamePanel tgpanel = new TypingGamePanel();
         tgpanel.setGame(tgame);
-        getParent().add(tgpanel, "TypingGame");
-        cl.show(getParent(), "TypingGame");
+        getParent().add(tgpanel, tgpanel.getComponentName());
+        cl.show(getParent(), tgpanel.getComponentName());
         getParent().remove(this);
     }//GEN-LAST:event_beginButtonActionPerformed
 

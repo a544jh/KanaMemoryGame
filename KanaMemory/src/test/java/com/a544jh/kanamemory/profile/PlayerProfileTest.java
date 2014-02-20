@@ -117,7 +117,7 @@ public class PlayerProfileTest {
             p.addScore(ks, CharacterType.KATAKANA, p.MAX_CHARACTER_SCORE);
         }
         
-        assertEquals(100, p.getCompletionPrecentage(),0.001);
+        assertEquals(100, p.getCompletionPercentage(),0.001);
     }
     
     @Test

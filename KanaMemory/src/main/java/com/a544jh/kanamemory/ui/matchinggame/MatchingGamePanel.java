@@ -25,12 +25,13 @@ import javax.swing.JPanel;
 public class MatchingGamePanel extends javax.swing.JPanel implements GamePanel{
 
     private MatchingGame game;
-    List<KanaCharacterButton> kcbuttons1, kcbuttons2;
-
+    private List<KanaCharacterButton> kcbuttons1, kcbuttons2;
+    private final String COMPONENT_NAME;
     /**
      * Creates new form MatchingGamePanel
      */
     public MatchingGamePanel() {
+        COMPONENT_NAME = "MatchingGame";
         initComponents();
         kcbuttons1 = new ArrayList<>();
         kcbuttons2 = new ArrayList<>();
@@ -221,6 +222,11 @@ public class MatchingGamePanel extends javax.swing.JPanel implements GamePanel{
         getParent().remove(this);
     }//GEN-LAST:event_backButtonActionPerformed
 
+    public String getComponentName() {
+        return COMPONENT_NAME;
+    }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;

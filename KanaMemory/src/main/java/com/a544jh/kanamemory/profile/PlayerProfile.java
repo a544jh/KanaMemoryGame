@@ -90,7 +90,7 @@ public class PlayerProfile {
         return sum;
     }
 
-    public double getCompletionPrecentage() {
+    public double getCompletionPercentage() {
         return ((double) getTotalScoreSum() / MAX_TOTAL_SCORE) * 100;
     }
 

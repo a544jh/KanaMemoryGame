@@ -18,9 +18,9 @@ import java.awt.CardLayout;
  */
 public class MatchingGameConfigPanel extends javax.swing.JPanel implements GameConfigPanel {
 
-    PlayerProfile profile;
-    final String COMPONENT_NAME;
-    KanaTablePanel.SelectionChangeListener scListener = new KanaTablePanel.SelectionChangeListener() {
+    private PlayerProfile profile;
+    private final String COMPONENT_NAME;
+    private KanaTablePanel.SelectionChangeListener scListener = new KanaTablePanel.SelectionChangeListener() {
         @Override
         public void selectionChanged() {
             if (kanaTablePanel1.getSelectedSyllables().size() < 5) {
@@ -193,8 +193,8 @@ public class MatchingGameConfigPanel extends javax.swing.JPanel implements GameC
         MatchingGamePanel mgpanel = new MatchingGamePanel();
         mgpanel.setGame(mgame);
         mgpanel.startRound();
-        getParent().add(mgpanel, "MatchingGame");
-        cl.show(getParent(), "MatchingGame");
+        getParent().add(mgpanel, mgpanel.getComponentName());
+        cl.show(getParent(), mgpanel.getComponentName());
         getParent().remove(this);
     }//GEN-LAST:event_beginButtonActionPerformed
 

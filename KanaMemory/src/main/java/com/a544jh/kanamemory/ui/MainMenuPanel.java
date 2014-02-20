@@ -40,7 +40,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
         currentProfileLabel.setText("Current profile: " + profile.getName());
         jProgressBar1.setMaximum(profile.MAX_TOTAL_SCORE);
         jProgressBar1.setValue(profile.getTotalScoreSum());
-        totalProgressLabel.setText(String.format("%.2f", profile.getCompletionPrecentage()) + "% "
+        totalProgressLabel.setText(String.format("%.2f", profile.getCompletionPercentage()) + "% "
                 + profile.getTotalScoreSum() + "/" + profile.MAX_TOTAL_SCORE);
         hiraganaPanel.refreshColors(profile);
         katakanaPanel.refreshColors(profile);
