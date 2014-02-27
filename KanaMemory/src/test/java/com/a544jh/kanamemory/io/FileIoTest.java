@@ -10,8 +10,12 @@ import com.a544jh.kanamemory.characters.CharacterType;
 import com.a544jh.kanamemory.characters.KanaSyllable;
 import com.a544jh.kanamemory.profile.PlayerProfile;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.JSONException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -60,7 +64,11 @@ public class FileIoTest {
         JsonFileWriter.saveProfile(testProfile2, "profiles_test.tmp");
         
         ArrayList<String> names = new ArrayList<>(Arrays.asList("test1","test2"));
-        assertEquals(names, JsonFileReader.ProfilesList("profiles_test.tmp"));
+        try {
+            assertEquals(names, JsonFileReader.ProfilesList("profiles_test.tmp"));
+        } catch (FileNotFoundException | JSONException ex) {
+            Logger.getLogger(FileIoTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @Test
@@ -85,7 +93,11 @@ public class FileIoTest {
         JsonFileWriter.deleteProfile("test2", "profiles_test.tmp");
         
         ArrayList<String> names = new ArrayList<>(Arrays.asList("test1"));
-        assertEquals(names, JsonFileReader.ProfilesList("profiles_test.tmp"));
+        try {
+            assertEquals(names, JsonFileReader.ProfilesList("profiles_test.tmp"));
+        } catch (FileNotFoundException | JSONException ex) {
+            Logger.getLogger(FileIoTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @After

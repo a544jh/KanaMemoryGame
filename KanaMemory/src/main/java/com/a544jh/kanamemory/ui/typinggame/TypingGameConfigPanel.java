@@ -73,7 +73,7 @@ public class TypingGameConfigPanel extends javax.swing.JPanel implements GameCon
 
         setPreferredSize(new java.awt.Dimension(500, 600));
 
-        backButton.setText("Back");
+        backButton.setText("Main Menu");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);

@@ -36,3 +36,9 @@ Toinen sekvenssikaavio, testejä 1,5h
 
 16.2.2014
 TypingGame ja pientä refaktorointia	2h
+
+20.2.2014
+Dokumentointia ja testejä	1,5h
+
+27.2.2014
+Rakennekuvaus, käyttöohjeet, viimeistelyä	3h

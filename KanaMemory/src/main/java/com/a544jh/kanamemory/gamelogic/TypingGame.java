@@ -18,7 +18,7 @@ import java.util.Random;
  *
  * @author axel
  */
-public class TypingGame {
+public class TypingGame implements GameLogic{
 
     private PlayerProfile profile;
     private final EnumSet<KanaSyllable> kanaSet;// = EnumSet.range(KanaSyllable.A, KanaSyllable.O);

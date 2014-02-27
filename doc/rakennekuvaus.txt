@@ -1,0 +1,11 @@
+CharacterType enum sisältää merkkityypit ja KanaSyllable sisältää kaikki japanin kielen tavut, sekä eri tyyppien merkkijonoesitykset niistä. Näistä kahdesta voidaan muodostaa KanaCharacter -olio.
+
+PlayerProfile -oliolla on EnumMap rakenne, joka koostuu kahdesta EnumMapista. Ensimmäinen EnumMap liittää merkkityypin toiseen EnumMapiin, joka sitten liittää tavun kokonaislukuun. Täten voidaan sitten navigoida jokaiselle merkille, eli tyyppi-tavu yhdistelmälle.
+
+JsonFileWriter -olio muuttaa PlayerProfilen EnumMap-rakenteen JSON -muodoksi tiedostoon kirjoittamista varten ja JsonFileReader pystyy luomaan PlayerProfile -olion JSON -tiedostosta.
+
+Pääikkuna MainWindow sisältää JPanel -näkymiä. Kun ohjelma käynnistetään MainWindow luo ensin ProfileChooser -paneelin, joka käyttää JsonFileReader -olion metodeja ladatakseen profiilin tiedostosta. ProfileChooser luo MainMenuPanelin ja liittää siihen PlayerProfilen. MainWidowin näkymä vaihtuu sitten MainMenu -paneeliin.
+
+KanaTable merkkitaulukko on pienempi paneeli, joka toimii komponenttina MainMenussa ja GameConfigPanelissa.
+
+GameConfigPanel ja GamePanel ovat jonkun pelin käyttölittymäpaneeleja ja GameLogic sen logiikkaluokka. (Kooditasolla nämä ovat tällä hetkellä pelkkiä rajapintoja.) GameConfigPanelin KanaTablePanel antaa pelissä käsiteltävän tavujoukuon pelilogiikalle.

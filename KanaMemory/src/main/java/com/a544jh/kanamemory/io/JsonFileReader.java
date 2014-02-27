@@ -71,17 +71,16 @@ public class JsonFileReader {
      *
      * @param filename JSON file to be parsed.
      * @return
+     * @throws java.io.FileNotFoundException
+     * @throws org.json.JSONException
      */
-    public static ArrayList<String> ProfilesList(String filename) {
+    public static ArrayList<String> ProfilesList(String filename) throws FileNotFoundException, JSONException {
         ArrayList<String> names = new ArrayList<>();
-        try {
-            JSONObject jo = readFileToJsonObject(new File(filename));
-            Iterator namesIterator = jo.keys();
-            while (namesIterator.hasNext()) {
-                names.add((String) namesIterator.next());
-            }
-        } catch (FileNotFoundException | JSONException ex) {
-            Logger.getLogger(JsonFileReader.class.getName()).log(Level.SEVERE, null, ex);
+        JSONObject jo = readFileToJsonObject(new File(filename));
+        Iterator namesIterator = jo.keys();
+        while (namesIterator.hasNext()) {
+            names.add((String) namesIterator.next());
+
         }
         return names;
     }

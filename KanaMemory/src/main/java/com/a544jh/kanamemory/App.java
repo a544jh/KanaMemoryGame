@@ -5,9 +5,13 @@ import com.a544jh.kanamemory.io.JsonFileReader;
 import com.a544jh.kanamemory.io.JsonFileWriter;
 import com.a544jh.kanamemory.profile.PlayerProfile;
 import com.a544jh.kanamemory.textgame.TextGame;
+import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.EnumSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.JSONException;
 
 /**
  * This is just testing stuff.
@@ -26,7 +30,13 @@ public class App {
 //        testGame.play(CharacterType.KATAKANA);
 //        testGame.printStats();
 
-        ArrayList<String> names = JsonFileReader.ProfilesList("profiles");
+        ArrayList<String> names;
+        try {
+            names = JsonFileReader.ProfilesList("profiles");
+        } catch (FileNotFoundException | JSONException ex) {
+            Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+            names = new ArrayList<>();
+        }
         for (String string : names) {
             System.out.println(string);
         }

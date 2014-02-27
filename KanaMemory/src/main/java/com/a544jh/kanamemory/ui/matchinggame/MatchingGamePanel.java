@@ -181,7 +181,7 @@ public class MatchingGamePanel extends javax.swing.JPanel implements GamePanel{
         kanaCharacterButton11.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jPanel2.add(kanaCharacterButton11);
 
-        backButton.setText("Back");
+        backButton.setText("Main Menu");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);

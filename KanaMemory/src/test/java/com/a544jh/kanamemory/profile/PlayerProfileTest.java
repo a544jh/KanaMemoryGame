@@ -118,6 +118,7 @@ public class PlayerProfileTest {
         }
         
         assertEquals(100, p.getCompletionPercentage(),0.001);
+        assertEquals(p.MAX_TOTAL_SCORE, p.getTotalScoreSum());
     }
     
     @Test

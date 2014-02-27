@@ -6,13 +6,14 @@
 package com.a544jh.kanamemory.ui.typinggame;
 
 import com.a544jh.kanamemory.gamelogic.TypingGame;
+import com.a544jh.kanamemory.ui.GamePanel;
 import java.awt.CardLayout;
 
 /**
  *
  * @author axel
  */
-public class TypingGamePanel extends javax.swing.JPanel {
+public class TypingGamePanel extends javax.swing.JPanel implements GamePanel {
 
     private TypingGame game;
     private final String COMPONENT_NAME;
@@ -54,7 +55,7 @@ public class TypingGamePanel extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(500, 600));
 
-        backButton.setText("Back");
+        backButton.setText("Main Menu");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);

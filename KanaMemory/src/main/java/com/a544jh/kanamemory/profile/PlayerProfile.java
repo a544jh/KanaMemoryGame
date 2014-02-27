@@ -21,6 +21,9 @@ import java.util.Map;
 public class PlayerProfile {
 
     private String name;
+    /**
+     * The maximum score for each character.
+     */
     public final int MAX_CHARACTER_SCORE = 20;
     public final int MAX_TOTAL_SCORE;
     private Map<CharacterType, Map<KanaSyllable, Integer>> kanaScores;
@@ -94,10 +97,27 @@ public class PlayerProfile {
         return ((double) getTotalScoreSum() / MAX_TOTAL_SCORE) * 100;
     }
 
+    /**
+     * Get a color for a character based on its score. The score being closer to
+     * MAX_CHARACTER_SCORE results in a greener color, while being closer to
+     * -MAX_CHARACTER_SCORE returns a redder color.
+     *
+     * @param c
+     * @return
+     */
     public Color getCharacterColor(KanaCharacter c) {
         return getCharacterColor(c.getSyllable(), c.getType());
     }
 
+    /**
+     * Get a color for a character based on its score. The score being closer to
+     * MAX_CHARACTER_SCORE results in a greener color, while being closer to
+     * -MAX_CHARACTER_SCORE returns a redder color.
+     *
+     * @param syllable
+     * @param type
+     * @return
+     */
     public Color getCharacterColor(KanaSyllable syllable, CharacterType type) {
         int score = getScore(syllable, type);
         //Green

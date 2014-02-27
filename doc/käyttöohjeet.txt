@@ -1,0 +1,14 @@
+Tietoja japanin tavumerkeistä: http://en.wikipedia.org/wiki/Kana
+
+Kun ohjelma avataan, avautuu näkymä profiilin valitsemiselle. Tässä voit ladata tallennetun profiilin tai luoda uuden. Profiilit tallentuvat jar-tiedoston hakemistoon "profiles" -nimiseen tiedostoon.
+
+Kun profiili on valittu, näkyy päävalikko. Tässä näkyy merkkien oppimisen etenemispalkki, sekä merkkitaulukko. Hyvin opitut merkit saavat vihreän sävyn, ja huonosti opitut punaisen.
+Pelit käynnistyvät "Match" ja "Type" painikkeilla.
+
+Pelien konfiguraationäkymässä valitset harjoteltavat merkkityypit sekä tavut. Voit valita kokonaisen sarakkeen taulukosta klikkaamalla sen otsikkoa. Kun olet valinnut vähintään 5 tavua, pääset aloittamaan peliä.
+
+Match -pelissä pitää parittaa samaa tavua esittävät merkit. Paritus tapahtuu klikkaamalla painikkeita.
+
+Type -pelissä kirjoitetaan merkin romaji-muoto tekstikenttään näppäimistöllä. Hyäksy enterillä. Jos epäonnistut 3 kertaa peräkkäin saat vihjeen.
+
+Profiilin tallennus tapahtuu automaattisesti aina kun palataan päävalikkoon.

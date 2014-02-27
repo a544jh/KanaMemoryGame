@@ -37,7 +37,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
     }
     
     public void refresh() {
-        currentProfileLabel.setText("Current profile: " + profile.getName());
+        currentProfileLabel.setText("こんにちは、" + profile.getName() + "!");
         jProgressBar1.setMaximum(profile.MAX_TOTAL_SCORE);
         jProgressBar1.setValue(profile.getTotalScoreSum());
         totalProgressLabel.setText(String.format("%.2f", profile.getCompletionPercentage()) + "% "
@@ -65,7 +65,6 @@ public class MainMenuPanel extends javax.swing.JPanel {
 
         kanaMemoryLabel = new javax.swing.JLabel();
         changeProfileButton = new javax.swing.JButton();
-        aboutButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         matchingGameButton = new javax.swing.JButton();
@@ -77,6 +76,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
         katakanaPanel = new com.a544jh.kanamemory.ui.KanaTablePanel();
         currentProfileLabel = new javax.swing.JLabel();
         totalProgressLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(500, 600));
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -94,8 +94,6 @@ public class MainMenuPanel extends javax.swing.JPanel {
                 changeProfileButtonActionPerformed(evt);
             }
         });
-
-        aboutButton.setText("About");
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -150,9 +148,15 @@ public class MainMenuPanel extends javax.swing.JPanel {
         katakanaPanel.setCtype(CharacterType.KATAKANA);
         jTabbedPane1.addTab("Katakana", katakanaPanel);
 
-        currentProfileLabel.setText("Current profile: -----");
+        currentProfileLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        currentProfileLabel.setText("こんにちは、----- !");
+        currentProfileLabel.setMaximumSize(new java.awt.Dimension(143, 17));
 
         totalProgressLabel.setText("146/146");
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
+        jLabel2.setForeground(javax.swing.UIManager.getDefaults().getColor("Label.disabledForeground"));
+        jLabel2.setText("v1.0 ♡2014 a544jh");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -161,34 +165,32 @@ public class MainMenuPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(kanaMemoryLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(changeProfileButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(aboutButton))
                     .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(currentProfileLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(totalProgressLabel)))
+                        .addComponent(totalProgressLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(kanaMemoryLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(currentProfileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(changeProfileButton))
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(kanaMemoryLabel)
                     .addComponent(changeProfileButton)
-                    .addComponent(aboutButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(currentProfileLabel)
+                    .addComponent(currentProfileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -198,8 +200,9 @@ public class MainMenuPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -225,11 +228,11 @@ public class MainMenuPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton aboutButton;
     private javax.swing.JButton changeProfileButton;
     private javax.swing.JLabel currentProfileLabel;
     private com.a544jh.kanamemory.ui.KanaTablePanel hiraganaPanel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;

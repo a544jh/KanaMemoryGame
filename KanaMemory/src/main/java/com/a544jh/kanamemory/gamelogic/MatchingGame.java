@@ -18,7 +18,7 @@ import java.util.EnumSet;
  *Game logic class for the matching game.
  * @author axel
  */
-public class MatchingGame {
+public class MatchingGame implements GameLogic{
     private PlayerProfile profile;
     private final EnumSet<KanaSyllable> kanaSet;// = EnumSet.range(KanaSyllable.A, KanaSyllable.O);
     private CharacterType cType1, cType2;   

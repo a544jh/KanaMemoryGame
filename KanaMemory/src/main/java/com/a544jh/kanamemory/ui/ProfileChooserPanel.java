@@ -9,9 +9,14 @@ import com.a544jh.kanamemory.io.JsonFileReader;
 import com.a544jh.kanamemory.io.JsonFileWriter;
 import com.a544jh.kanamemory.profile.PlayerProfile;
 import java.awt.CardLayout;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.json.JSONException;
 
 /**
  *
@@ -31,7 +36,18 @@ public class ProfileChooserPanel extends javax.swing.JPanel {
 
     public void populateList() {
         listmodel = new DefaultListModel<>();
-        ArrayList<String> names = JsonFileReader.ProfilesList("profiles");
+        ArrayList<String> names;
+        try {
+            names = JsonFileReader.ProfilesList("profiles");
+        } catch (FileNotFoundException ex) {
+            System.out.println("Profiles file not found. A new one will be created.");
+            names = new ArrayList<>();
+        } catch (JSONException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage() + "\nFix or delete the profiles file.",
+                    "Profiles file malformed", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
+            names = new ArrayList<>();
+        }
         for (String string : names) {
             listmodel.addElement(string);
         }
